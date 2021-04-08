@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, shrink-to-fit=no">
-    <title>Panolens.js panorama image panorama</title>
+    <title>Pano3d samples</title>
     <style>
       html, body {
         margin: 0;
@@ -44,6 +44,36 @@
       const viewer = new PANOLENS.Viewer( { output: 'console' } );
       import { PLYLoader } from './jsm/loaders/PLYLoader.js';
       viewer.add( panorama );
+
+      let container;
+      let camera,renderer,scene;
+
+      function init() {
+            container = document.createElement( 'div' );
+            document.body.appendChild( container );
+
+            camera = new THREE.PerspectiveCamera( 35, window.innerWidth / window.innerHeight, 1, 15 );
+				    camera.position.set( 3, 0.15, 3 );
+				    cameraTarget = new THREE.Vector3( 0, - 0.1, 0 );
+				    scene = new THREE.Scene();
+				    scene.background = new THREE.Color( 0x72645b );
+				    scene.fog = new THREE.Fog( 0x72645b, 2, 15 );
+
+            // PLY file
+				  const loader = new PLYLoader();
+				  loader.load( 'ply/pred_pointcloud_0.ply', function ( geometry ) {
+					        geometry.computeVertexNormals();
+					        //const material = new THREE.MeshStandardMaterial( { color: 0x0055ff, flatShading: true } );
+					        const mesh = new THREE.Mesh( geometry, material );
+					        mesh.position.y = - 0.2;
+					        mesh.position.z = 0.3;
+					        mesh.rotation.x = - Math.PI / 2;
+					        mesh.scale.multiplyScalar( 0.001 );
+					        mesh.castShadow = true;
+					        mesh.receiveShadow = true;
+					        scene.add( mesh );
+				  });
+        }
 
     </script>
 
