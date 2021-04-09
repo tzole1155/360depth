@@ -583,7 +583,7 @@
             function show_group_panos(elements, objects, N) {
                 var controls = [];
                 for (var i=0; i<objects.length; i++) {
-                    controls.push(show_panos(elements[i], objects[i], N));
+                    controls.push(show_pano(elements[i], objects[i], N));
                 }
 
                 return {
@@ -675,6 +675,8 @@
                 [humans[0], humans[1], humans[2]],
                 6
             );
+
+            
             var human_checkboxes = document.querySelectorAll("#humans .controls input");
             reset_checkboxes(human_checkboxes);
             document.querySelector("#humans .controls").addEventListener(
