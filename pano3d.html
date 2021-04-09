@@ -341,6 +341,7 @@
             import { OrbitControls } from "https://unpkg.com/three/examples/jsm/controls/OrbitControls.js";
             import {OBJLoader} from "https://unpkg.com/three/examples/jsm/loaders/OBJLoader.js";
             import { PLYLoader } from './js/loaders/PLYLoader.js';
+            import { MTLLoader } from "https://unpkg.com/three/examples/jsm/loaders/MTLLoader"
 
             // Render the predictions
             function random_choice(arr, n) {
@@ -471,6 +472,88 @@
                 };
 
             }
+
+            function show_mesh(el,prefix,N){
+
+                const scene = new THREE.Scene();
+                const renderer = new THREE.WebGLRenderer();
+                const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+                const controls = new OrbitControls(camera, renderer.domElement);
+
+                camera.position.set(0.5, 0.5, 0.5);
+                controls.target.set(0, 0, 0);
+                controls.autoRotate = true;
+                controls.autoRotateSpeed = 4;
+                scene.background = new THREE.Color("white");
+                var size = el.dataset.size;
+                renderer.setSize(size, size);
+                var progress = progress_bar();
+                el.appendChild(progress.domElement);
+                el.appendChild(renderer.domElement);
+
+                const amb_light = new THREE.AmbientLight(0x606060); // soft white light
+                scene.add(amb_light);
+                const hem_light = new THREE.HemisphereLight(0xffffbb, 0x080820, 0.5);
+                scene.add(hem_light);
+
+                function animate() {
+                    requestAnimationFrame(animate);
+                    if (el.offsetWidth != previous_canvas_size) {
+                        previous_canvas_size = el.offsetWidth;
+                        renderer.domElement.style.width = previous_canvas_size + "px";
+                        renderer.domElement.style.height = previous_canvas_size + "px";
+                    }
+
+                    controls.update();
+                    renderer.render(scene, camera);
+                }
+
+                const mtlLoader = new MTLLoader();
+                var meshes = [];
+                var progresses = [];
+                var loaded = 0;
+                function load_mesh(mesh_idx) {
+                    progresses[mesh_idx] = 0;
+                    mtlLoader.load('ply/pred_0_mesh.mtl',
+                    (materials) => {
+                            materials.preload();
+
+                            const objLoader = new OBJLoader();
+                            objLoader.setMaterials(materials);
+                            objLoader.load('ply/pred_0_mesh.obj',
+                            (object) => {
+                                scene.add(object);
+                                meshes[mesh_idx] = mesh;
+                            },)
+                    });
+                }
+                for (var i=0; i<N; i++) {
+                    load_mesh(i);
+                }
+                animate();
+                return {
+                    meshes: meshes,
+                    show: function (indices) {
+                        for (var i=0; i<N; i++) {
+                            meshes[i].material.opacity = 0.5;
+                            //meshes[i].visible = false;
+                        }
+                        for (var i=0; i<indices.length; i++) {
+                            meshes[indices[i]].material.opacity = 1;
+                            //meshes[indices[i]].visible = true;
+                        }
+                    },
+                    show_all: function () {
+                        for (var i=0; i<N; i++) {
+                            meshes[i].material.opacity = 1;
+                            //meshes[i].visible = true;
+                        }
+                    },
+                    set_size: function(width, height) {
+                        renderer.setSize(width, height);
+                    }
+                };
+        }
 
             function show_object(el, prefix, N) {
                 const scene = new THREE.Scene();
@@ -694,10 +777,10 @@
                 };
             }
 
-            function show_group_plys(elements, objects, N) {
+            function show_group_meshes(elements, objects, N) {
                 var controls = [];
                 for (var i=0; i<objects.length; i++) {
-                    controls.push(show_ply(elements[i], objects[i], N));
+                    controls.push(show_mesh(elements[i], objects[i], N));
                 }
 
                 return {
@@ -757,7 +840,7 @@
             );
 
             //plys
-            var plys = show_group_plys(
+            var plys = show_group_meshes(
                 document.getElementById("point_clouds").getElementsByClassName("render_window"),
                 [panos[0], panos[1], panos[2]],
                 6
