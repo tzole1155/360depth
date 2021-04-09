@@ -537,6 +537,7 @@
 
 				function load_pano(pano_idx){
 					progresses[pano_idx] = 0;
+                    console.log("dpepdle" + prefix);
 					//var texture = new THREE.TextureLoader().load( 'panoramas/color_0.png' );
                     var texture = new THREE.TextureLoader().load( prefix[pano_idx] );
 					var material = new THREE.MeshBasicMaterial( { map: texture } );
