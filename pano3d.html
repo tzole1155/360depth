@@ -496,6 +496,7 @@
                 const hem_light = new THREE.HemisphereLight(0xffffbb, 0x080820, 0.5);
                 scene.add(hem_light);
 
+                var previous_canvas_size = size;
                 function animate() {
                     requestAnimationFrame(animate);
                     if (el.offsetWidth != previous_canvas_size) {
