@@ -538,7 +538,7 @@
 				function load_pano(pano_idx){
 					progresses[pano_idx] = 0;
 					//var texture = new THREE.TextureLoader().load( 'panoramas/color_0.png' );
-                    var texture = new THREE.TextureLoader().load( el[pano_idx] );
+                    var texture = new THREE.TextureLoader().load( prefix[pano_idx] );
 					var material = new THREE.MeshBasicMaterial( { map: texture } );
 
 					var mesh = new THREE.Mesh( geometry, material );
