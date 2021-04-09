@@ -515,13 +515,14 @@
                 var loaded = 0;
                 function load_mesh(mesh_idx) {
                     progresses[mesh_idx] = 0;
-                    mtlLoader.load('ply/pred_0_mesh.mtl',
+                    mtlLoader.load(prefix.replace("obj","mtl"),
+                    // mtlLoader.load('ply/pred_0_mesh.mtl',
                     (materials) => {
                             materials.preload();
 
                             const objLoader = new OBJLoader();
                             objLoader.setMaterials(materials);
-                            objLoader.load('ply/pred_0_mesh.obj',
+                            objLoader.load(prefix,
                             (object) => {
                                 scene.add(object);
                                 meshes[mesh_idx] = object;
@@ -840,8 +841,13 @@
                 6
             );
 
-            //plys
-            var plys = show_group_meshes(
+            //meshes
+            var meshes_paths = [
+                "ply/pred_0_mesh.obj",
+                "ply/pred_0_mesh.obj",
+                "ply/pred_0_mesh.obj",
+            ];
+            var meshes = show_group_meshes(
                 document.getElementById("point_clouds").getElementsByClassName("render_window"),
                 [panos[0], panos[1], panos[2]],
                 6
