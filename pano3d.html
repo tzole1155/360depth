@@ -1,12 +1,12 @@
 <!Doctype html>
 <html lang="en">
     <head>
-        <title>Neural Parts: Learning Expressive 3D Shape Abstractions with Invertible Neural Networks</title>
+        <title>Pano3d: A Holistic Benchmark and a Solid Baseline for 360<sup>o</sup> Depth Estimation</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="author" content="Despoina Paschalidou">
+        <meta name="author" content="Georgios Albanis">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/png" href="data/bunny.png"/>
+        <!-- <link rel="icon" type="image/png" href="data/bunny.png"/> -->
 
         <link rel="stylesheet" type="text/css" href="style_project_page.css?cache=7733391418498779679">
         <link href="https://fonts.googleapis.com/css?family=Arvo|Roboto&display=swap" rel="stylesheet">
@@ -498,6 +498,110 @@
                 };
             }
 
+
+            function show_pano(el,prefix,N){
+				const scene = new THREE.Scene();
+                const renderer = new THREE.WebGLRenderer();
+                const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+				const geometry = new THREE.SphereGeometry( 500, 60, 40 );
+                const controls = new OrbitControls(camera, renderer.domElement);
+				camera.position.set(0.5, 0.5, 0.5);
+                controls.target.set(0, 0, 0);
+                controls.autoRotate = true;
+                controls.autoRotateSpeed = 4;
+                scene.background = new THREE.Color("white");
+				var size = el.dataset.size;
+                renderer.setSize(size, size);
+                var progress = progress_bar();
+                el.appendChild(progress.domElement);
+                el.appendChild(renderer.domElement);
+				// invert the geometry on the x-axis so that all of the faces point inward
+				geometry.scale( - 1, 1, 1 );
+
+				var previous_canvas_size = size;
+                function animate() {
+                    requestAnimationFrame(animate);
+                    if (el.offsetWidth != previous_canvas_size) {
+                        previous_canvas_size = el.offsetWidth;
+                        renderer.domElement.style.width = previous_canvas_size + "px";
+                        renderer.domElement.style.height = previous_canvas_size + "px";
+                    }
+
+                    controls.update();
+                    renderer.render(scene, camera);
+                }
+
+				var meshes = [];
+                var progresses = [];
+                var loaded = 0;
+
+				function load_pano(pano_idx){
+					progresses[part_idx] = 0;
+					var texture = new THREE.TextureLoader().load( 'panoramas/color_0.png' );
+					var material = new THREE.MeshBasicMaterial( { map: texture } );
+
+					var mesh = new THREE.Mesh( geometry, material );
+					meshes[part_idx] = mesh;
+					scene.add( mesh );
+					loaded++;
+                    if (loaded == N) {
+                        progress.hide();
+                    }
+				}
+				for (var i=0; i<N; i++) {
+                    load_pano(i);
+                }
+                animate();
+
+				return {
+                    meshes: meshes,
+                    show: function (indices) {
+                        for (var i=0; i<N; i++) {
+                            meshes[i].material.opacity = 0.5;
+                            //meshes[i].visible = false;
+                        }
+                        for (var i=0; i<indices.length; i++) {
+                            meshes[indices[i]].material.opacity = 1;
+                            //meshes[indices[i]].visible = true;
+                        }
+                    },
+                    show_all: function () {
+                        for (var i=0; i<N; i++) {
+                            meshes[i].material.opacity = 1;
+                            //meshes[i].visible = true;
+                        }
+                    },
+                    set_size: function(width, height) {
+                        renderer.setSize(width, height);
+                    }
+                };
+
+			}
+
+
+
+            function show_group_panos(elements, objects, N) {
+                var controls = [];
+                for (var i=0; i<objects.length; i++) {
+                    controls.push(show_panos(elements[i], objects[i], N));
+                }
+
+                return {
+                    controls: controls,
+                    show: function (indices) {
+                        for (var i=0; i<controls.length; i++) {
+                            controls[i].show(indices);
+                        }
+                    },
+                    show_all: function () {
+                        for (var i=0; i<controls.length; i++) {
+                            controls[i].show_all();
+                        }
+                    }
+                };
+            }
+
+
             function show_group(elements, objects, N) {
                 var controls = [];
                 for (var i=0; i<objects.length; i++) {
@@ -562,6 +666,12 @@
             ];
             var human_control = show_group(
                 document.getElementById("humans").getElementsByClassName("render_window"),
+                [humans[0], humans[1], humans[2]],
+                6
+            );
+
+            var panos = show_group(
+                document.getElementById("input_panoramas").getElementsByClassName("render_window"),
                 [humans[0], humans[1], humans[2]],
                 6
             );
