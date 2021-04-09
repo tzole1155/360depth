@@ -24,25 +24,25 @@
       <div class="container">
         <div class="row">
           <div class="col">
-            <h2 style="font-size:30px;">NeuralRecon: Real-Time Coherent 3D Reconstruction from Monocular Video</h2>
-            <h4 style="color:#6e6e6e;"> CVPR 2021 (Oral)</h4>
+            <h2 style="font-size:30px;">Pano3d: A Holistic Benchmark and a Solid Baseline for 360<sup>o</sup> Depth Estimation</h2>
+            <!-- <h4 style="color:#6e6e6e;"> CVPR 2021 (Oral)</h4> -->
             <hr>
-            <h6> <a href="https://jiamingsun.ml/" target="_blank">Jiaming Sun</a><sup>1,2*</sup>, 
+            <!-- <h6> <a href="https://jiamingsun.ml/" target="_blank">Jiaming Sun</a><sup>1,2*</sup>, 
                  <a href="https://ymingxie.github.io/" target="_blank">Yiming Xie</a><sup>1*</sup>, 
-                 <!-- <a href="https://ymingxie.github.io/" target="_blank">Yiming Xie</a><sup>1,2*</sup>,  -->
                 <a href="https://github.com/f-sky" target="_blank">Linghao Chen</a><sup>1</sup>,
                 <a href="http://xzhou.me" target="_blank">Xiaowei Zhou</a><sup>1</sup>,
-                <a href="http://www.cad.zju.edu.cn/bao/" target="_blank">Hujun Bao</a><sup>1</sup></h6>
+                <a href="http://www.cad.zju.edu.cn/bao/" target="_blank">Hujun Bao</a><sup>1</sup>
+            </h6>
             <p> <sup>1</sup>State Key Lab of CAD & CG, Zhejiang University &nbsp;&nbsp; 
                 <sup>2</sup>SenseTime Research
                 <br>
                 <sup>*</sup> denotes equal contribution
-            </p>
+            </p> -->
             <!-- <p> <a class="btn btn-secondary btn-lg" href="" role="button">Paper</a> 
                 <a class="btn btn-secondary btn-lg" href="" role="button">Code</a> 
                 <a class="btn btn-secondary btn-lg" href="" role="button">Data</a> </p> -->
 
-            <div class="row justify-content-center">
+            <!-- <div class="row justify-content-center">
               <div class="column">
                   <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/pdf/2104.00681.pdf" role="button"  target="_blank">
                     <i class="fa fa-file"></i> Paper</a> </p>
@@ -56,7 +56,7 @@
                   <p class="mb-5"><a class="btn btn-large btn-light" href="files/NeuralRecon-suppmat.pdf" role="button"  target="_blank">
                     <i class="fa fa-file"></i> Supplementary</a> </p>
               </div>
-            </div>
+            </div> -->
             
           </div>
         </div>
@@ -65,30 +65,40 @@
   </section>
 
   <!-- abstract -->
-  <section>
+  <!-- <section>
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
           <h3>Abstract</h3>
             <hr style="margin-top:0px">
             <h6 style="color:#8899a5"> NeuralRecon reconstructs 3D scene geometry from a monocular video with known camera poses in <b style="color:#e94a00">real-time</b>🔥.</h6>
-<!--             <video poster="images/header-vid-poster.png" width="70%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="" id="header_vid"> -->
             <video width="70%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="" id="header_vid">
                   <source src="videos/web-scene2.m4v" type="video/mp4">
             </video>
             <div><b style="color:#fd5638; font-size:large" id="demo-warning"></b>
             <br>
             </div>
-              <!-- <br><br> -->
+           
           <p class="text-justify">
             We present a novel framework named NeuralRecon for real-time 3D scene reconstruction from a monocular video. Unlike previous methods that estimate single-view depth maps separately on each key-frame and fuse them later, we propose to directly reconstruct local surfaces represented as sparse TSDF volumes for each video fragment sequentially by a neural network. A learning-based TSDF fusion module based on gated recurrent units is used to guide the network to fuse features from previous fragments. This design allows the network to capture local smoothness prior and global shape prior of 3D surfaces when sequentially reconstructing the surfaces, resulting in accurate, coherent, and real-time surface reconstruction. The experiments on ScanNet and 7-Scenes datasets show that our system outperforms state-of-the-art methods in terms of both accuracy and speed. To the best of our knowledge, this is the first learning-based system that is able to reconstruct dense coherent 3D geometry in real-time. 
           </p>
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <br>
-
+  <!-- panorama showcase -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Reconstruction showcase</h3>
+            <hr style="margin-top:0px">
+        
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- reconstruction showcase -->
   <section>
     <div class="container">
@@ -97,13 +107,8 @@
             <h3>Reconstruction showcase</h3>
             <hr style="margin-top:0px">
             <div class="sketchfab-embed-wrapper">
-              <iframe title="Pred Pointcloud 0" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="fullscreen; autoplay; vr" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/33dacb0119974c458c708d5cce051a44/embed">
+              <iframe title="Pred Pointcloud 0" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="fullscreen; autoplay; vr" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/33dacb0119974c458c708d5cce051a44/embed?autospin=0&autostart=1&preload=1&ui_theme=dark">
               </iframe>
-             <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
-                  <a href="https://sketchfab.com/3d-models/pred-pointcloud-0-33dacb0119974c458c708d5cce051a44?utm_medium=embed&utm_campaign=share-popup&utm_content=33dacb0119974c458c708d5cce051a44" target="_blank" style="font-weight: bold; color: #1CAAD9;">Pred Pointcloud 0</a>
-                  by <a href="https://sketchfab.com/giorgos_al10?utm_medium=embed&utm_campaign=share-popup&utm_content=33dacb0119974c458c708d5cce051a44" target="_blank" style="font-weight: bold; color: #1CAAD9;">giorgos_al10</a>
-                  on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=33dacb0119974c458c708d5cce051a44" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
-              </p>
           </div>
             <br>
             <p> Zoom in by scrolling. You can toggle the “Single Sided” option in Model Inspector (pressing I key) to enable back-face culling (see through walls). Select “Matcap” to inspect the geometry without textures.</p>
