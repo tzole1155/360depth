@@ -230,7 +230,14 @@
                     </div>
                 </div>
 
-                <h3>Reconstructed surfaces</h3>
+                <h3>Predicted meshes</h3>
+                <div id="meshes">
+                    <div class="render_container">
+                        <div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div>
+                    </div>
+                </div>
+
+                <h3>Textured meshes</h3>
                 <div id="point_clouds">
                     <div class="render_container">
                         <div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div>
@@ -621,10 +628,10 @@
                 function load_part(part_idx) {
                     progresses[part_idx] = 0;
                     loader.load(
-                        prefix + "/part_00" + i + ".obj",
-                        function (object) {
-                            var g = object.children[0].geometry;
-                            var m = new THREE.MeshLambertMaterial({color: colors[part_idx]});
+                        prefix,
+                        function (geometry) {
+                            var g = geometry;
+                            var m = new THREE.MeshLambertMaterial({color: 0x111111});
                             m.transparent = true;
                             var mesh = new THREE.Mesh(g, m);
                             meshes[part_idx] = mesh;
@@ -635,14 +642,6 @@
                                 progress.hide();
                             }
                         },
-                        function (event) {
-                            progresses[part_idx] = event.loaded / event.total;
-                            var total_progress = 0;
-                            for (var i=0; i<progresses.length; i++) {
-                                total_progress += progresses[i] / progresses.length;
-                            }
-                            progress.update(total_progress);
-                        }
                     )
                 }
                 for (var i=0; i<N; i++) {
@@ -847,6 +846,11 @@
                 "ply/pred_0_mesh.obj",
                 "ply/pred_0_mesh.obj",
             ];
+            var non_coloured_meshes = show_group(
+                document.getElementById("meshes").getElementsByClassName("render_window"),
+                [meshes_paths[0], meshes_paths[1], meshes_paths[2]],
+                6
+            );
             var meshes = show_group_meshes(
                 document.getElementById("point_clouds").getElementsByClassName("render_window"),
                 [meshes_paths[0], meshes_paths[1], meshes_paths[2]],
