@@ -89,46 +89,38 @@
     <body>
         <div class="section">
             <h1 class="project-title">
-                Neural Parts: Learning Expressive 3D Shape Abstractions<br />
-                with Invertible Neural Networks
+                Pano3d: A Holistic Benchmark and a Solid Baseline for 360<sup>o</sup> Depth Estimation
             </h1>
             <div class="authors">
-                <a href=https://paschalidoud.github.io/>
-                    Despoina Paschalidou <sup>1,5,6</sup>
+                <a href=https://tzole1155.github.io/>
+                    Georgios Albanis <sup>1</sup>
                 </a>
-                <a href=https://angeloskath.github.io/>
-                    Angelos Katharopoulos <sup>3,4</sup>
+                <a href=https://zokin.github.io/>
+                    Nikolaos Zioulis <sup>1,2</sup>
                 </a>
-                <a href=http://cvlibs.net/>
+                <!-- <a href=http://cvlibs.net/>
                     Andreas Geiger <sup>1,2,5</sup>
                 </a>
                 <a href=https://www.cs.utoronto.ca/~fidler/>
                     Sanja Fidler <sup>6,7,8</sup>
-                </a>
+                </a> -->
             </div>
 
             <div class="affiliations">
-                <span><sup>1</sup> Autonomous Vision Group, MPI for
-                    Intelligent Systems Tübingen</span>
-                <span><sup>2</sup> University of Tübingen</span> <br/>
-                <span><sup>3</sup> Idiap Research Institute, Switzerland</span>
-                <span><sup>4</sup> École Polytechique Fédérale de Lausanne (EPFL)</span> <br/>
-                <span><sup>5</sup> Max Planck ETH Center for Learning Systems</span>
-                <span><sup>6</sup> NVIDIA</span>
-                <span><sup>7</sup> University of Toronto</span>
-                <span><sup>8</sup> Vector Institute</span>
+                <span><sup>1</sup> Visual Computing Lab</span>
+                <span><sup>2</sup> Upm</span> <br/>
             </div>
 
             <div class="project-conference">
-                CVPR 2021
+                OmniCV 2021
             </div>
 
             <div class="project-icons">
-                <a href="https://arxiv.org/pdf/2103.10429.pdf">
+                <!-- <a href="https://arxiv.org/pdf/2103.10429.pdf"> -->
                     <i class="fa fa-file"></i> <br/>
                     Paper
                 </a>
-                <a href="https://github.com/paschalidoud/neural_parts">
+                <!-- <a href="https://github.com/paschalidoud/neural_parts"> -->
                     <i class="fa fa-github"></i> <br/>
                     Code
                 </a>
@@ -151,14 +143,11 @@
             </div>
 
             <div class="teaser-image">
-                <img src="projects/neural_parts/teaser.png" style="width:100%;">
-                <p class="caption">Our model learns to parse 3D objects into
-                geometrically accurate and semantically consistent part arrangements <strong>
-                without any part-level supervision</strong>. Our evaluations on ShapeNet objects,
-                D-FAUST humans and FreiHAND hands demonstrate that our primitives can capture complex
-                geometries and thus simultaneously achieve geometrically accurate as well as
-                interpretable reconstructions using an order of magnitude fewer primitives than
-                state-of-the-art shape abstraction methods.</p>
+                <img src="pano3d/teaser.png" style="width:100%;">
+                <p class="caption">Preserving depth's piece-wise smoothness should be the primary goal of data-driven depth estimation models.
+                    Yet most works only assess direct depth performance neglecting secondary traits like smoothness or boundary preservation.
+                    Different architectures (UNet -- left, or Pnas -- right) exhibit different inference characteristics skewed towards boundaries (UNet) or smoothness (Pnas).
+                    The Pano3D benchmark descends from a holistic perspective taking into account all performance traits, and additionally focuses on an orthogonal performance direction, generalization to unseen data from different distributions, contexts or domains. </p>
                 <figure style="width: 49%;">
                     <video class="centered" width="100%" controls muted loop autoplay>
                         <source src="projects/neural_parts/motivation_cvxnet.mp4" type="video/mp4"/>
