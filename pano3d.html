@@ -148,7 +148,7 @@
                     Yet most works only assess direct depth performance neglecting secondary traits like smoothness or boundary preservation.
                     Different architectures (UNet -- left, or Pnas -- right) exhibit different inference characteristics skewed towards boundaries (UNet) or smoothness (Pnas).
                     The Pano3D benchmark descends from a holistic perspective taking into account all performance traits, and additionally focuses on an orthogonal performance direction, generalization to unseen data from different distributions, contexts or domains. </p>
-                <figure style="width: 49%;">
+                <!-- <figure style="width: 49%;">
                     <video class="centered" width="100%" controls muted loop autoplay>
                         <source src="projects/neural_parts/motivation_cvxnet.mp4" type="video/mp4"/>
                     </video>
@@ -167,7 +167,7 @@
                     <strong>represent arbitrarily complex genus-zero shapes
                     </strong> and thus yield more <strong>geometrically accurate</strong> and
                     <strong>semantically meaningful</strong> shape abstractions compared to simpler primitives.</p>
-                </figure>
+                </figure> -->
             </div>
 
             <div class="section-title">Approach Overview</div>
@@ -221,12 +221,23 @@
 
             <div class="section-title">Results</div>
             <div class="content">
-                In the following interactive visualization, the naming of the
-                parts has been done manually. However, <strong>the model had no part
-                supervision during training</strong>. The semantic parts have
-                emerged naturally from reconstructing the geometry.
+                In the following interactive visualization, we provide qualitative results for our best model.
 
-                <h3>Humans</h3>
+                <h3>Input Panoramas</h3>
+                <div id="input_panoramas">
+                    <div class="render_container">
+                        <div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div>
+                    </div>
+                </div>
+
+                <h3>Predicted point clouds</h3>
+                <div id="point_clouds">
+                    <div class="render_container">
+                        <div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div>
+                    </div>
+                </div>
+                
+                <!-- <h3>Humans</h3>
                 <div id="humans">
                     <div class="controls">
                         <div class="left-controls">
@@ -267,10 +278,10 @@
                     <div class="render_container">
                         <div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
-            <div class="section-title">Comparison to Primitive-based Methods</div>
+            <!-- <div class="section-title">Comparison to Primitive-based Methods</div>
             <div class="content">
                 <p>
                     We compare the representation power of Neural Parts to
@@ -317,12 +328,11 @@
                         src="projects/neural_parts/semantic-consistency-shorter.mp4"
                         type="video/mp4" />
                 </video>
-            </div>
+            </div> -->
 
             <div class="section-title">Acknowledgements</div>
             <div class="content">
-                This research was supported by the Max Planck ETH Center for
-                Learning Systems.
+                This research was supported by the EU under the grant agreement .
             </div>
         </div>
 
