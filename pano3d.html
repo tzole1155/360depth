@@ -431,7 +431,7 @@
                 var loaded = 0;
                 function load_ply(ply_idx) {
                     progresses[ply_idx] = 0;
-                    loader.load( 'ply/pred_pointcloud_0.obj', function ( geometry ) {
+                    loader.load( 'ply/pred_0_mesh.obj', function ( geometry ) {
                         //var geometry = object.children[0].geometry;
                         //geometry.computeVertexNormals();
                         var material = new THREE.MeshStandardMaterial( { color: 0xffffff, specular: 0x111111, shininess: 200 } );
