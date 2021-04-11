@@ -425,16 +425,16 @@
                     renderer.render(scene, camera);
                 }
 
-                const loader = new PLYLoader();
+                const loader = new OBJLoader();
                 var meshes = [];
                 var progresses = [];
                 var loaded = 0;
                 function load_ply(ply_idx) {
                     progresses[ply_idx] = 0;
-                    loader.load( 'ply/pred_pointcloud_0.ply', function ( geometry ) {
+                    loader.load( 'ply/pred_pointcloud_0.obj', function ( geometry ) {
                         //var geometry = object.children[0].geometry;
                         //geometry.computeVertexNormals();
-                        var material = new THREE.MeshStandardMaterial( { color: 0xffffff, specular: 0x111111, shininess: 200,vertexColors: THREE.VertexColors } );
+                        var material = new THREE.MeshStandardMaterial( { color: 0xffffff, specular: 0x111111, shininess: 200 } );
                         material.transparent = true;
                         var mesh = new THREE.Mesh( geometry, material );
                         //mesh.position.y = - 0.2;
@@ -804,7 +804,7 @@
             function show_group(elements, objects, N) {
                 var controls = [];
                 for (var i=0; i<objects.length; i++) {
-                    controls.push(show_object(elements[i], objects[i], N));
+                    controls.push(show_ply(elements[i], objects[i], N));
                 }
 
                 return {
