@@ -629,13 +629,13 @@
                     progresses[part_idx] = 0;
                     loader.load(
                         prefix,
-                        function (geometry) {
-                            var g = geometry;
-                            var m = new THREE.MeshLambertMaterial({color: 0x111111});
-                            m.transparent = true;
-                            var mesh = new THREE.Mesh(g, m);
-                            meshes[part_idx] = mesh;
-                            scene.add(mesh);
+                        function (object) {
+                            //var g = geometry;
+                            //var m = new THREE.MeshLambertMaterial({color: 0x111111});
+                            //m.transparent = true;
+                            //var mesh = new THREE.Mesh(g, m);
+                            meshes[part_idx] = object;
+                            scene.add(object);
 
                             loaded++;
                             if (loaded == N) {
