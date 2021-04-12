@@ -1,0 +1,38 @@
+<!DOCTYPE MeshLabDocument>
+<MeshLabProject>
+ <MeshGroup>
+  <MLMesh label="pred_pointcloud_10.ply" filename="../../360DN/in_the_wild/unet_latest/pred_pointcloud_10.ply">
+   <MLMatrix44>
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="pred_pointcloud_20.ply" filename="../../360DN/in_the_wild/unet_latest/pred_pointcloud_20.ply">
+   <MLMatrix44>
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="pred_pointcloud_21.ply" filename="../../360DN/in_the_wild/unet_latest/pred_pointcloud_21.ply">
+   <MLMatrix44>
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+  <MLMesh label="Poisson mesh" filename="pred_21_poisson.ply">
+   <MLMatrix44>
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+ </MeshGroup>
+ <RasterGroup/>
+</MeshLabProject>

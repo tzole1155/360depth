@@ -1,7 +1,7 @@
 <!DOCTYPE MeshLabDocument>
 <MeshLabProject>
  <MeshGroup>
-  <MLMesh filename="pred_pointcloud_0.ply" label="pred_pointcloud_0.ply">
+  <MLMesh label="pred_pointcloud_0.ply" filename="../../360DN/in_the_wild/unet_latest/pred_pointcloud_0.ply">
    <MLMatrix44>
 1 0 0 0 
 0 1 0 0 
@@ -9,7 +9,7 @@
 0 0 0 1 
 </MLMatrix44>
   </MLMesh>
-  <MLMesh filename="pred_0_poisson.ply" label="Poisson mesh">
+  <MLMesh label="Poisson mesh" filename="pred_0_poisson.ply">
    <MLMatrix44>
 1 0 0 0 
 0 1 0 0 
