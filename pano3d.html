@@ -119,7 +119,7 @@
             </div>
 
             <div class="affiliations">
-                <span><sup>1</sup> Visual Computing Lab (VCL), Information Technologies Institute (ITI), Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece</span>
+                <span><sup>1</sup> Visual Computing Lab (VCL), Information Technologies Institute (ITI), Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece</span><br>
                 <span><sup>2</sup> Signals, Systems and Radiocommunications Department (SSRD), Universidad Politécnica de Madrid (UPM), Madrid, Spain</span> <br/>
             </div>
 
@@ -249,12 +249,12 @@
                     </div>
                 </div>
 
-                <h3>Textured meshes</h3>
+                <!-- <h3>Textured meshes</h3>
                 <div id="point_clouds">
                     <div class="render_container">
                         <div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div>
                     </div>
-                </div>
+                </div> -->
                 
                 <!-- <h3>Humans</h3>
                 <div id="humans">
@@ -863,128 +863,128 @@
                 [meshes_paths[0], meshes_paths[1], meshes_paths[2]],
                 6
             );
-            var meshes = show_group_meshes(
-                document.getElementById("point_clouds").getElementsByClassName("render_window"),
-                [meshes_paths[0], meshes_paths[1], meshes_paths[2]],
-                6
-            );
+            // var meshes = show_group_meshes(
+            //     document.getElementById("point_clouds").getElementsByClassName("render_window"),
+            //     [meshes_paths[0], meshes_paths[1], meshes_paths[2]],
+            //     6
+            // );
             
-            var human_checkboxes = document.querySelectorAll("#humans .controls input");
-            reset_checkboxes(human_checkboxes);
-            document.querySelector("#humans .controls").addEventListener(
-                "change",
-                function (ev) {
-                    if (ev.target.id == "humans_all") {
-                        Array.prototype.filter.call(
-                            human_checkboxes,
-                            (el) => el.id != "humans_all"
-                        ).forEach(function (el) {el.checked = false;});
-                    } else if (ev.target.checked) {
-                        human_checkboxes[0].checked = false;
-                    }
+            // var human_checkboxes = document.querySelectorAll("#humans .controls input");
+            // reset_checkboxes(human_checkboxes);
+            // document.querySelector("#humans .controls").addEventListener(
+            //     "change",
+            //     function (ev) {
+            //         if (ev.target.id == "humans_all") {
+            //             Array.prototype.filter.call(
+            //                 human_checkboxes,
+            //                 (el) => el.id != "humans_all"
+            //             ).forEach(function (el) {el.checked = false;});
+            //         } else if (ev.target.checked) {
+            //             human_checkboxes[0].checked = false;
+            //         }
 
-                    var ids = new Set();
-                    if (human_checkboxes[0].checked) {
-                        ids = new Set([0, 1, 2, 3, 4, 5]);
-                    }
-                    var part_ids = [1, 2, 0, 4, 3, 5];
-                    for (var i=1; i<human_checkboxes.length; i++) {
-                        if (human_checkboxes[i].checked) {
-                            ids.add(part_ids[i-1]);
-                        }
-                    }
+            //         var ids = new Set();
+            //         if (human_checkboxes[0].checked) {
+            //             ids = new Set([0, 1, 2, 3, 4, 5]);
+            //         }
+            //         var part_ids = [1, 2, 0, 4, 3, 5];
+            //         for (var i=1; i<human_checkboxes.length; i++) {
+            //             if (human_checkboxes[i].checked) {
+            //                 ids.add(part_ids[i-1]);
+            //             }
+            //         }
 
-                    human_control.show(Array.from(ids));
-                }
-            );
-            document.querySelector("#humans .controls button").addEventListener(
-                "click",
-                function (ev) {
-                    reset_checkboxes(human_checkboxes);
-                    var new_humans = random_choice(humans, 3);
-                    var render_windows = document.getElementById("humans").getElementsByClassName("render_window");
-                    Array.prototype.forEach.call(render_windows, function (r) {r.innerHTML = "";});
-                    human_control = show_group(
-                        render_windows,
-                        new_humans,
-                        6
-                    );
-                }
-            );
+            //         human_control.show(Array.from(ids));
+            //     }
+            // );
+            // document.querySelector("#humans .controls button").addEventListener(
+            //     "click",
+            //     function (ev) {
+            //         reset_checkboxes(human_checkboxes);
+            //         var new_humans = random_choice(humans, 3);
+            //         var render_windows = document.getElementById("humans").getElementsByClassName("render_window");
+            //         Array.prototype.forEach.call(render_windows, function (r) {r.innerHTML = "";});
+            //         human_control = show_group(
+            //             render_windows,
+            //             new_humans,
+            //             6
+            //         );
+            //     }
+            // );
 
-            // Planes
-            var planes = [
-                "https://superquadrics.com/neural_parts/planes/10af5de930178a161596c26b5af806fe",
-                "https://superquadrics.com/neural_parts/planes/1a32f10b20170883663e90eaf6b4ca52",
-                "https://superquadrics.com/neural_parts/planes/1a6ad7a24bb89733f412783097373bdc",
-                "https://superquadrics.com/neural_parts/planes/1b3c6b2fbcf834cf62b600da24e0965",
-                "https://superquadrics.com/neural_parts/planes/1c26ecb4cd01759dc1006ed55bc1a3fc",
-                "https://superquadrics.com/neural_parts/planes/284e6431669d46fd44797ce00623b3fd",
-                "https://superquadrics.com/neural_parts/planes/2c3ba3f35c5d2b0ce77e43d0a92bdc06",
-                "https://superquadrics.com/neural_parts/planes/315f523d0a924fb7ef70df8610b582b2",
-                "https://superquadrics.com/neural_parts/planes/343a607d1604335fb4f192eea1889928",
-                "https://superquadrics.com/neural_parts/planes/347d86d7001cef01232236eecec447b",
-                "https://superquadrics.com/neural_parts/planes/351c9235749e398162147e00e97e28b5",
-                "https://superquadrics.com/neural_parts/planes/3716ed4fa80dbf5f41392ab7a601818b",
-                "https://superquadrics.com/neural_parts/planes/384e72f69e6f24404cb288947cda4a2c",
-                "https://superquadrics.com/neural_parts/planes/440ac1b4ac3cbe114c3a35cee92bb95b",
-                "https://superquadrics.com/neural_parts/planes/440e5ba74ac8124e9751c7a6f15617f4",
-                "https://superquadrics.com/neural_parts/planes/48706d323b9041d5438a95791ca4064d",
-                "https://superquadrics.com/neural_parts/planes/563cef4df464ddb1e153dd90dac45a6d",
-                "https://superquadrics.com/neural_parts/planes/5c6590461085c93ea91e80f26309099e",
-                "https://superquadrics.com/neural_parts/planes/60b5f5da40e0dd33579f6385fdd4245b",
-                "https://superquadrics.com/neural_parts/planes/7b134f6573e7270fb0a79e28606cb167",
-                "https://superquadrics.com/neural_parts/planes/92a83ecaa10e8d3f78e919a72d9a39e7",
-                "https://superquadrics.com/neural_parts/planes/ed2aaca045fb1714cd4229f38ad0d015",
-                "https://superquadrics.com/neural_parts/planes/f12eefbbefabe566ca8607f540cc62ba",
-            ];
-            var plane_control = show_group(
-                document.getElementById("planes").getElementsByClassName("render_window"),
-                [planes[7], planes[1], planes[2]],
-                5
-            );
-            var plane_checkboxes = document.querySelectorAll("#planes .controls input");
-            reset_checkboxes(plane_checkboxes);
-            document.querySelector("#planes .controls").addEventListener(
-                "change",
-                function (ev) {
-                    if (ev.target.id == "planes_all") {
-                        Array.prototype.filter.call(
-                            plane_checkboxes,
-                            (el) => el.id != "planes_all"
-                        ).forEach(function (el) {el.checked = false;});
-                    } else if (ev.target.checked) {
-                        plane_checkboxes[0].checked = false;
-                    }
+            // // Planes
+            // var planes = [
+            //     "https://superquadrics.com/neural_parts/planes/10af5de930178a161596c26b5af806fe",
+            //     "https://superquadrics.com/neural_parts/planes/1a32f10b20170883663e90eaf6b4ca52",
+            //     "https://superquadrics.com/neural_parts/planes/1a6ad7a24bb89733f412783097373bdc",
+            //     "https://superquadrics.com/neural_parts/planes/1b3c6b2fbcf834cf62b600da24e0965",
+            //     "https://superquadrics.com/neural_parts/planes/1c26ecb4cd01759dc1006ed55bc1a3fc",
+            //     "https://superquadrics.com/neural_parts/planes/284e6431669d46fd44797ce00623b3fd",
+            //     "https://superquadrics.com/neural_parts/planes/2c3ba3f35c5d2b0ce77e43d0a92bdc06",
+            //     "https://superquadrics.com/neural_parts/planes/315f523d0a924fb7ef70df8610b582b2",
+            //     "https://superquadrics.com/neural_parts/planes/343a607d1604335fb4f192eea1889928",
+            //     "https://superquadrics.com/neural_parts/planes/347d86d7001cef01232236eecec447b",
+            //     "https://superquadrics.com/neural_parts/planes/351c9235749e398162147e00e97e28b5",
+            //     "https://superquadrics.com/neural_parts/planes/3716ed4fa80dbf5f41392ab7a601818b",
+            //     "https://superquadrics.com/neural_parts/planes/384e72f69e6f24404cb288947cda4a2c",
+            //     "https://superquadrics.com/neural_parts/planes/440ac1b4ac3cbe114c3a35cee92bb95b",
+            //     "https://superquadrics.com/neural_parts/planes/440e5ba74ac8124e9751c7a6f15617f4",
+            //     "https://superquadrics.com/neural_parts/planes/48706d323b9041d5438a95791ca4064d",
+            //     "https://superquadrics.com/neural_parts/planes/563cef4df464ddb1e153dd90dac45a6d",
+            //     "https://superquadrics.com/neural_parts/planes/5c6590461085c93ea91e80f26309099e",
+            //     "https://superquadrics.com/neural_parts/planes/60b5f5da40e0dd33579f6385fdd4245b",
+            //     "https://superquadrics.com/neural_parts/planes/7b134f6573e7270fb0a79e28606cb167",
+            //     "https://superquadrics.com/neural_parts/planes/92a83ecaa10e8d3f78e919a72d9a39e7",
+            //     "https://superquadrics.com/neural_parts/planes/ed2aaca045fb1714cd4229f38ad0d015",
+            //     "https://superquadrics.com/neural_parts/planes/f12eefbbefabe566ca8607f540cc62ba",
+            // ];
+            // var plane_control = show_group(
+            //     document.getElementById("planes").getElementsByClassName("render_window"),
+            //     [planes[7], planes[1], planes[2]],
+            //     5
+            // );
+            // var plane_checkboxes = document.querySelectorAll("#planes .controls input");
+            // reset_checkboxes(plane_checkboxes);
+            // document.querySelector("#planes .controls").addEventListener(
+            //     "change",
+            //     function (ev) {
+            //         if (ev.target.id == "planes_all") {
+            //             Array.prototype.filter.call(
+            //                 plane_checkboxes,
+            //                 (el) => el.id != "planes_all"
+            //             ).forEach(function (el) {el.checked = false;});
+            //         } else if (ev.target.checked) {
+            //             plane_checkboxes[0].checked = false;
+            //         }
 
-                    var ids = new Set();
-                    if (plane_checkboxes[0].checked) {
-                        ids = new Set([0, 1, 2, 3, 4]);
-                    }
-                    var part_ids = [4, 0, 3, 2, 1];
-                    for (var i=1; i<plane_checkboxes.length; i++) {
-                        if (plane_checkboxes[i].checked) {
-                            ids.add(part_ids[i-1]);
-                        }
-                    }
+            //         var ids = new Set();
+            //         if (plane_checkboxes[0].checked) {
+            //             ids = new Set([0, 1, 2, 3, 4]);
+            //         }
+            //         var part_ids = [4, 0, 3, 2, 1];
+            //         for (var i=1; i<plane_checkboxes.length; i++) {
+            //             if (plane_checkboxes[i].checked) {
+            //                 ids.add(part_ids[i-1]);
+            //             }
+            //         }
 
-                    plane_control.show(Array.from(ids));
-                }
-            );
-            document.querySelector("#planes .controls button").addEventListener(
-                "click",
-                function (ev) {
-                    reset_checkboxes(plane_checkboxes);
-                    var new_planes = random_choice(planes, 3);
-                    var render_windows = document.getElementById("planes").getElementsByClassName("render_window");
-                    Array.prototype.forEach.call(render_windows, function (r) {r.innerHTML = "";});
-                    plane_control = show_group(
-                        render_windows,
-                        new_planes,
-                        5
-                    );
-                }
-            );
+            //         plane_control.show(Array.from(ids));
+            //     }
+            // );
+            // document.querySelector("#planes .controls button").addEventListener(
+            //     "click",
+            //     function (ev) {
+            //         reset_checkboxes(plane_checkboxes);
+            //         var new_planes = random_choice(planes, 3);
+            //         var render_windows = document.getElementById("planes").getElementsByClassName("render_window");
+            //         Array.prototype.forEach.call(render_windows, function (r) {r.innerHTML = "";});
+            //         plane_control = show_group(
+            //             render_windows,
+            //             new_planes,
+            //             5
+            //         );
+            //     }
+            // );
         </script>
         <!-- <script>
             // Make the carousel for the comparisons
