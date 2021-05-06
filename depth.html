@@ -54,7 +54,7 @@
         
             var dome = new BABYLON.PhotoDome(
                 "testdome",
-                "https://threejs.org/examples/textures/kandao3.jpg",
+                "./depth/color_20.png",
                 {
                     resolution: 32,
                     size: 1000,
@@ -63,7 +63,7 @@
                 scene
             );
         
-            dome.mesh.applyDisplacementMap('https://threejs.org/examples/textures/kandao3_depthmap.jpg', 1, 200)
+            dome.mesh.applyDisplacementMap('./depth/depth_t_0_20.jpg', 1, 200)
         
             scene.onKeyboardObservable.add(e => {
                 switch(e.event.type) {
