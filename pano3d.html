@@ -13,9 +13,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
         <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide/dist/css/glide.core.min.css">
+        <link rel="stylesheet" href="css/BeerSlider.css"/>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script src="https://unpkg.com/@glidejs/glide"></script>
+        <script src="js/BeerSlider.js"></script>
         <style type="text/css">
             .side-text {
                 width:60%;
@@ -246,6 +248,13 @@
                 <div id="pred_meshes">
                     <div class="render_container">
                         <div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div>
+                    </div>
+                </div>
+
+                <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
+                    <img src="depth/color_20.png" alt="">
+                    <div class="beer-reveal" data-beer-label="UNet">
+                      <img src="depth/depth_t_0_20.jpg" alt="">
                     </div>
                 </div>
 
@@ -985,6 +994,18 @@
             //         );
             //     }
             // );
+        </script>
+        <!--Slider-->
+        <script>
+                $.fn.BeerSlider = function ( options ) {
+                  options = options || {};
+                  return this.each(function() {
+                    new BeerSlider(this, options);
+                  });
+                };
+                $('.beer-slider').each( (function( index, el ) {
+                  $(el).BeerSlider({start: $(el).data('beer-start')})
+                }));
         </script>
         <!-- <script>
             // Make the carousel for the comparisons
