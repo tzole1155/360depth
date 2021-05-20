@@ -178,16 +178,16 @@
 				lat = Math.max( - 85, Math.min( 85, lat ) );
 				phi = THREE.MathUtils.degToRad( 90 - lat );
 				theta = THREE.MathUtils.degToRad( lon );
+				console.log(lat);
+				console.log(lon);
 
-				const x = - 500 * Math.sin( phi ) * Math.cos( theta );
+				const x = 500 * Math.sin( phi ) * Math.cos( theta );
 				const y = 500 * Math.cos( phi /2);
 				const z = 500 * Math.sin( phi ) * Math.sin( theta );
 
 				camera.lookAt( x, y, z );
 
-				console.log(x);
-				console.log(y);
-				console.log(z);
+				
 
 				renderer.render( scene, camera );
 
