@@ -180,8 +180,8 @@
 				theta = THREE.MathUtils.degToRad( lon );
 
 				const x = 500 * Math.sin( phi ) * Math.cos( theta );
-				const y = 500 * Math.cos( phi );
-				const z = 500 * Math.sin( phi ) * Math.sin( theta );
+				const y = 500 * Math.cos( phi /2);
+				const z = 500 * Math.sin( phi ) * Math.sin( theta / 2 );
 
 				camera.lookAt( x, y, z );
 
