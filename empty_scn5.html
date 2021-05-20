@@ -37,20 +37,6 @@
 				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1100 );
 
 				
-				// console.log(camera.quaternion.x);
-				// console.log(camera.quaternion.y);
-				// console.log(camera.quaternion.z);
-				// console.log(camera.quaternion.w);
-
-				camera.rotation.order = 'YXZ';
-
-				camera.rotateOnAxis(new THREE.Vector3(1, 0, 0), 1.5708);
-				//const quaternion = new THREE.Quaternion(-0.3484,0.5014, 0.2306, 0.7575);
-
-				//camera.applyQuaternion(quaternion); // Apply Quaternion
-
-				//camera.quaternion.normalize();   // Normalise Quaternion
-				
 				scene = new THREE.Scene();
 
 				const geometry = new THREE.SphereGeometry( 500, 60, 40 );
@@ -199,12 +185,11 @@
 
 				camera.lookAt( x, y, z );
 
-				renderer.render( scene, camera );
+				console.log(x);
+				console.log(y);
+				console.log(z);
 
-				// console.log(camera.quaternion.x);
-				// console.log(camera.quaternion.y);
-				// console.log(camera.quaternion.z);
-				// console.log(camera.quaternion.w);
+				renderer.render( scene, camera );
 
 			}
 
