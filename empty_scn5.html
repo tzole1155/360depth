@@ -41,6 +41,10 @@
 				console.log(camera.quaternion.y);
 				console.log(camera.quaternion.z);
 				console.log(camera.quaternion.w);
+
+				const quaternion = new THREE.Quaternion(-0.0869,-0.0642, -0.0056, 0.9941);
+
+				camera.applyQuaternion(quaternion); // Apply Quaternion
 				
 				scene = new THREE.Scene();
 
