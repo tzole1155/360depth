@@ -42,6 +42,8 @@
 				// console.log(camera.quaternion.z);
 				// console.log(camera.quaternion.w);
 
+				camera.rotation.order = 'YXZ';
+
 				camera.rotateOnAxis(new THREE.Vector3(1, 0, 0), 1.5708);
 				//const quaternion = new THREE.Quaternion(-0.3484,0.5014, 0.2306, 0.7575);
 
