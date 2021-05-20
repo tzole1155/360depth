@@ -37,7 +37,10 @@
 				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1100 );
 
 				
-				console.log("camera rotation " + camera.quaternion);
+				console.log("camera rotation x" + camera.quaternion.x);
+				console.log("camera rotation y" + camera.quaternion.y);
+				console.log("camera rotation z" + camera.quaternion.z);
+				console.log("camera rotation w" + camera.quaternion.w);
 				
 				scene = new THREE.Scene();
 
