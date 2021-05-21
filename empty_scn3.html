@@ -22,8 +22,8 @@
 
 			let isUserInteracting = false,
 				onPointerDownMouseX = 0, onPointerDownMouseY = 0,
-				lon = 0, onPointerDownLon = 0,
-				lat = 0, onPointerDownLat = 0,
+				lon = 24.30, onPointerDownLon = 0,
+				lat = -49.80, onPointerDownLat = 0,
 				phi = 0, theta = 0;
 
 			init();
@@ -178,6 +178,9 @@
 				lat = Math.max( - 85, Math.min( 85, lat ) );
 				phi = THREE.MathUtils.degToRad( 90 - lat );
 				theta = THREE.MathUtils.degToRad( lon );
+
+				// console.log(lat);
+				// console.log(lon);
 
 				const x = 500 * Math.sin( phi ) * Math.cos( theta );
 				const y = 500 * Math.cos( phi );
