@@ -8,7 +8,7 @@
 	</head>
 	<body>
 
-		<div id="container"></div>
+		<div id="container" class="center"></div>
 		<div id="info">
 			Please have a look at the object highlighted with red colour. <br>
 			After that close the tab and continue with the form evaluation.
@@ -24,7 +24,8 @@
 				onPointerDownMouseX = 0, onPointerDownMouseY = 0,
 				lon = 0, onPointerDownLon = 0,
 				lat = 0, onPointerDownLat = 0,
-				phi = 0, theta = 0;
+				phi = 0, theta = 0, fov=60,
+				width = 640, height = 480;
 
 			init();
 			animate();
@@ -35,7 +36,7 @@
 				const container = document.getElementById( 'container' );
 
 				//camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1100 );
-				camera = new THREE.PerspectiveCamera( 75, 2.0, 1, 1100 );
+				camera = new THREE.PerspectiveCamera( fov, width/height, 1, 1100 );
 
 				scene = new THREE.Scene();
 
@@ -52,7 +53,8 @@
 
 				renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setSize( window.innerWidth, window.innerHeight );
+				// renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.setSize( width, height );
 				container.appendChild( renderer.domElement );
 
 				container.style.touchAction = 'none';
@@ -106,10 +108,13 @@
 
 			function onWindowResize() {
 
-				camera.aspect = window.innerWidth / window.innerHeight;
-				camera.updateProjectionMatrix();
+				// camera.aspect = window.innerWidth / window.innerHeight;
+				// camera.updateProjectionMatrix();
 
-				renderer.setSize( window.innerWidth, window.innerHeight );
+				// renderer.setSize( window.innerWidth, window.innerHeight );
+				camera.aspect = width / height;
+				camera.updateProjectionMatrix();
+				renderer.setSize( width, height );
 
 			}
 
