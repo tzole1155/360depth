@@ -228,3 +228,9 @@ video {
     margin: 0px;
     vertical-align: top;
 }
+
+.qualitative figure {
+    display: inline-block;
+    margin: 0px;
+    vertical-align: top;
+}
