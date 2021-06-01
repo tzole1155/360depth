@@ -21,7 +21,8 @@
         <script type="text/x-mathjax-config;executed=true">
             MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
         </script>
-        <script src="js/mathjs/MathJax.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" id="">
+        </script> -->
         <style type="text/css">
             .side-text {
                 width:60%;
@@ -69,7 +70,7 @@
                 text-align: center;
             }
             .glide__bullet--active {
-                color: #aaa; 
+                color: #aaa;
             }
 
             @media (max-width: 400px) {
@@ -181,7 +182,7 @@
                     <video class="centered" width="100%" controls muted loop autoplay>
                         <source src="projects/neural_parts/motivation_ours.mp4" type="video/mp4"/>
                     </video>
-                    <p class="caption">Neural Parts is a novel 3D primitive representation that can 
+                    <p class="caption">Neural Parts is a novel 3D primitive representation that can
                     <strong>represent arbitrarily complex genus-zero shapes
                     </strong> and thus yield more <strong>geometrically accurate</strong> and
                     <strong>semantically meaningful</strong> shape abstractions compared to simpler primitives.</p>
@@ -194,12 +195,12 @@
                     <h3>Data creation</h3>
                         <p>
                             Existing datasets are either purely synthetic (S3D) or ar based on 3D real scanned datasets (M3D, GV2).
-                            We exploit the 3D scanned models and render panoramas in different resolutions for both M3D and GV2. 
+                            We exploit the 3D scanned models and render panoramas in different resolutions for both M3D and GV2.
                             This results in a total of ... respectively
                         </p>
                     <h3>Generalization (zero-shot cross-dataset transfer)</h3>
                         <p>
-                            To benchmark the generalization ability of monocular 360 depth estimation models, we provide diverse datasets in terms of 
+                            To benchmark the generalization ability of monocular 360 depth estimation models, we provide diverse datasets in terms of
                             domain, depth distribution, and color.
                         </p>
                 </div>
@@ -266,7 +267,7 @@
                         <div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div>
                     </div>
                 </div> -->
-                
+
                 <!-- <h3>Humans</h3>
                 <div id="humans">
                     <div class="controls">
@@ -879,7 +880,7 @@
             //     [meshes_paths[0], meshes_paths[1], meshes_paths[2]],
             //     6
             // );
-            
+
             // var human_checkboxes = document.querySelectorAll("#humans .controls input");
             // reset_checkboxes(human_checkboxes);
             // document.querySelector("#humans .controls").addEventListener(
