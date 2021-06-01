@@ -185,91 +185,43 @@
             </div>
 
             <div class="section-title">Data</div>
-            <div class="content">
-                The most important part of designing useful benchmarks for data-driven methods is data, which will allow training unbiased, generalizable models.
-                <h3>Data creation</h3>
-                    <p>
-                        Existing datasets are either purely synthetic (S3D) or ar based on 3D real scanned datasets (M3D, GV2).
-                        We exploit the 3D scanned models and render panoramas in different resolutions for both M3D and GV2. 
-                        This results in a total of ... respectively
-                    </p>
-                <h3>Generalization (zero-shot cross-dataset transfer)</h3>
-                    <p>
-                        To benchmark the generalization ability of monocular 360 depth estimation models, we provide diverse datasets in terms of 
-                        domain, depth distribution, and color.
-                    </p>
-            </div>
-
+                <div class="content">
+                    The most important part of designing useful benchmarks for data-driven methods is data, which will allow training unbiased, generalizable models.
+                    <h3>Data creation</h3>
+                        <p>
+                            Existing datasets are either purely synthetic (S3D) or ar based on 3D real scanned datasets (M3D, GV2).
+                            We exploit the 3D scanned models and render panoramas in different resolutions for both M3D and GV2. 
+                            This results in a total of ... respectively
+                        </p>
+                    <h3>Generalization (zero-shot cross-dataset transfer)</h3>
+                        <p>
+                            To benchmark the generalization ability of monocular 360 depth estimation models, we provide diverse datasets in terms of 
+                            domain, depth distribution, and color.
+                        </p>
+                </div>
             <div class="section-title">Metrics</div>
-                <h3>Direct Depth Metrics</h3>
-                    <p>
-                        Given the progress of recent data-driven models we expand the δ accuracies with
-                        two lower thresholds, a strict at δ1.1, and a precise, δ1.05
-                    </p>
-                <h3>Depth Discontinuity Metrics</h3>
-                    <p>
-                        Given the progress of recent data-driven models we expand the δ accuracies with
-                        two lower thresholds, a strict at δ1.1, and a precise, δ1.05
-                    </p>
-                <h3>Depth Smoothness Metrics</h3>
-                    <p>
-                        Given the progress of recent data-driven models we expand the δ accuracies with
-                        two lower thresholds, a strict at δ1.1, and a precise, δ1.05
-                    </p>
-                <h3>Geometric Metrics</h3>
-                    <p>
-                        Given the progress of recent data-driven models we expand the δ accuracies with
-                        two lower thresholds, a strict at δ1.1, and a precise, δ1.05
-                    </p>
-
-            <!-- <div class="section-title">Approach Overview</div>
-            <div class="content">
-                <div class="side-text"><p>Primitive-based representations seek to infer
-                <strong>semantically consistent part arrangements across
-                different object instances</strong>. Existing primitive-based
-                methods rely on simple shapes for decomposing complex objects
-                into parts such as cuboids, superquadrics, spheres or
-                convexes. <strong>Due to their simple parametrization, these primitives
-                have limited expressivity and cannot capture arbitrarily
-                complex geometries</strong>. Therefore, <strong>existing part-based methods
-                require a large number of primitives for extracting
-                geometrically accurate reconstructions</strong>. However, using <strong>more
-                primitives comes at the expense of less interpretable
-                reconstructions</strong>. Namely, a primitive is not an identifiable
-                part anymore.</p></div>
-                <div class="side-image"><img src="pano3d/teaser.png" style="width:100%;"></div>
-                <p>We introduce a novel 3D primitive representation that is
-                defined as <strong>a deformation between shapes</strong> and is
-                <strong>parametrized as a learned homeomorphic mapping</strong>
-                implemented with an <strong>Invertible Neural Network
-                (INN)</strong>. We argue that a primitive should be a non
-                trivial genus-zero shape with well defined implicit and explicit representations. Using an INN allows us to efficiently compute
-                the implicit and explicit representation of the predicted shape
-                and impose various constraints on the predicted parts. In contrast to prior work,
-                that directly predict the primitive parameters (i.e. centroids and sizes for cuboids
-                and superquadrics and hyperplanes for convexes), we employ the INN to fully define each primitive.
-                This allows us to have primitives that capture arbitrarily
-                complex geometries, hence the ability of our model to parse
-                objects into expressive shape abstractions that are more
-                geometrically accurate using an order of magnitude fewer
-                primitives compared to approaches that rely on simple convex
-                shape primitives.
-                </p>
-                <img src="pano3d/teaser.png" style="width:100%;">
-                <p class="caption">Given an input image and a watertight mesh
-                of the target object we seek to learn a representation with M
-                primitives that best describes the target object. We define our
-                primitives via a deformation between shapes that is
-                parametrized as a learned homeomorphism implemented with an
-                Invertible Neural Network (INN). For each primitive, we seek to
-                learn a homeomorphism between the 3D space of a simple
-                genus-zero shape and the 3D space of the target object, such
-                that the deformed shape matches a part of the target object. Due
-                to its simple implicit surface definition and tesselation, we
-                employ a sphere as our genus-zero shape. Note that using an INN
-                allows us to efficiently compute the implicit and explicit representation of
-                the predicted shape and impose various constraints on the predicted parts.</p>
-            </div> -->
+                <div class="content"></div>
+                    <h3>Direct Depth Metrics</h3>
+                        <p>
+                            Given the progress of recent data-driven models we expand the δ accuracies with
+                            two lower thresholds, a strict at δ1.1, and a precise, δ1.05
+                        </p>
+                    <h3>Depth Discontinuity Metrics</h3>
+                        <p>
+                            Given the progress of recent data-driven models we expand the δ accuracies with
+                            two lower thresholds, a strict at δ1.1, and a precise, δ1.05
+                        </p>
+                    <h3>Depth Smoothness Metrics</h3>
+                        <p>
+                            Given the progress of recent data-driven models we expand the δ accuracies with
+                            two lower thresholds, a strict at δ1.1, and a precise, δ1.05
+                        </p>
+                    <h3>Geometric Metrics</h3>
+                        <p>
+                            Given the progress of recent data-driven models we expand the δ accuracies with
+                            two lower thresholds, a strict at δ1.1, and a precise, δ1.05
+                        </p>
+                </div>
 
             <div class="section-title">Results</div>
             <div class="content">
