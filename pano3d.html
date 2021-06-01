@@ -266,11 +266,24 @@
                     </table>
                     <p class="caption">
                         Boundary preservation qualitative comparison between the \(UNet\), \(Pnas\), \(ResNet\) and \(ResNet_{skip}\) models.
-                        From left to right: \(textit{i)}\) \(GT depth\) <span style="color:rgb(0,204,153)">(green)</span>, \(textit{ii)}\) \(UNet\) <span style="color:rgb(255,166,0)">(orange)</span>,
+                        From left to right: \(textbf{i)} GT depth\) <span style="color:rgb(0,204,153)">(green)</span>, \(textit{ii)} UNet\) <span style="color:rgb(255,166,0)">(orange)</span>,
                         \(textit{iii)}\)  \(Pnas\) <span style="color:rgb(0,255,255)">(cyan)</span>, \(textit{iv)}\) \(ResNet\) <span style="color:rgb(227,209,10)">(yellow)</span>, 
                         and \(textit{v)}\) \(ResNet_{skip}\) <span style="color:rgb(255,0,255)">(magenta)</span>.
                     </p>
-                    <h3>\(ResNet\) and \(ResNet_{skip}\)</h3>
+                    <h3>\(ResNet\) vs \(ResNet_{skip}\)</h3>
+                        <!-- <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
+                            <img src="depth/color_20.jpg" alt="">
+                            <div class="beer-reveal" data-beer-label="UNet">
+                            <img src="depth/depth_t_0_20.jpg" alt="">
+                            </div>
+                        </div> -->
+
+                        <div id="beer-slider" class="beer-slider" data-beer-label="Color 1" data-beer-start="40">
+                            <img src="depth/color_0.png" alt="">
+                            <div class="beer-reveal" data-beer-label="UNet 1">
+                            <img src="depth/depth_t_0_0.png" alt="">
+                            </div>
+                        </div>
 
                     <h3>Input Panoramas</h3>
                     <div id="input_panoramas">
@@ -283,20 +296,6 @@
                     <div id="pred_meshes">
                         <div class="render_container">
                             <div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div>
-                        </div>
-                    </div>
-
-                    <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
-                        <img src="depth/color_20.jpg" alt="">
-                        <div class="beer-reveal" data-beer-label="UNet">
-                        <img src="depth/depth_t_0_20.jpg" alt="">
-                        </div>
-                    </div>
-
-                    <div id="beer-slider" class="beer-slider" data-beer-label="Color 1" data-beer-start="40">
-                        <img src="depth/color_0.png" alt="">
-                        <div class="beer-reveal" data-beer-label="UNet 1">
-                        <img src="depth/depth_t_0_0.png" alt="">
                         </div>
                     </div>
 
