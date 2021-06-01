@@ -205,6 +205,7 @@
                         </p>
                 </div>
             <div class="section-title">Analysis</div>
+            <div class="content">
                 It is challenging to select the best model architecture across different metrics, thus we propose the following indicators,
                 which essentially are a combination of an error and an accuracy metric accordingly.
                 <ul>
@@ -212,6 +213,7 @@
                     <li>\(i_b = \frac{1}{(1 - \frac{(rec_{0.25} + rec_{0.5} + rec_{1.0})}{3}) \times dbe^{acc}}\)</li>
                     <li>\(i_s = \frac{1}{(1 - \frac{(\alpha_{11.25^o} + \alpha_{22.5^o} + \alpha_{30^o})}{3}) \times RMSE^o}\)</li>
                 </ul>
+            </div>
                 <div class="content">
                     <h3>Supervision</h3>
                     Following recent works in the depth estimation domain, we employ the following direct depth regression metrics,
