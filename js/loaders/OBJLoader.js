@@ -872,13 +872,13 @@ class OBJLoader extends Loader {
 
 				mesh.name = object.name;
 
-                //smooth function
-                smooth_geom = new THREE.Geometry().fromBufferGeometry(mesh.geometry);
-                smooth_geom.mergeVertices();
-                smooth_geom.computeVertexNormals();
-                smooth_geom.computeFaceNormals();
-                mesh.geometry = new THREE.BufferGeometry().fromGeometry(smooth_geom);
-                //
+                // //smooth function
+                // smooth_geom = new THREE.Geometry().fromBufferGeometry(mesh.geometry);
+                // smooth_geom.mergeVertices();
+                // smooth_geom.computeVertexNormals();
+                // smooth_geom.computeFaceNormals();
+                // mesh.geometry = new THREE.BufferGeometry().fromGeometry(smooth_geom);
+                // //
 
 				container.add( mesh );
 

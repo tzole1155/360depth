@@ -417,12 +417,12 @@
                             Apparenntly,  \(Pnas\) provides smoother results while it is clear that \(Unet\) is able to capture finer-grained details.
                         </p>
 
-                    <!-- <h3>Input Panoramas</h3>
+                    <h3>Input Panoramas</h3>
                     <div id="input_panoramas">
                         <div class="render_container">
                             <div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div>
                         </div>
-                    </div> -->
+                    </div>
 
                     <h3>Predicted meshes</h3>
                     <div id="pred_meshes">
@@ -833,15 +833,15 @@
                             //m.transparent = true;
                             //var mesh = new THREE.Mesh(g, m);
                             meshes[part_idx] = object;
-                            // //smooth function
-                            // //var smooth_geom = new THREE.BufferGeometry(object.geometry);
-                            // //smooth_geom = geom.fromBufferGeometry(object.geometry);
-                            // smooth_geom = new Geometry().fromBufferGeometry(object.geometry);
-                            // smooth_geom.mergeVertices();
-                            // smooth_geom.computeVertexNormals();
-                            // smooth_geom.computeFaceNormals();
-                            // object.geometry = new THREE.BufferGeometry().fromGeometry(smooth_geom);
-                            // //
+                            //smooth function
+                            //var smooth_geom = new THREE.BufferGeometry(object.geometry);
+                            //smooth_geom = geom.fromBufferGeometry(object.geometry);
+                            smooth_geom = new Geometry().fromBufferGeometry(object.geometry);
+                            smooth_geom.mergeVertices();
+                            smooth_geom.computeVertexNormals();
+                            smooth_geom.computeFaceNormals();
+                            object.geometry = new THREE.BufferGeometry().fromGeometry(smooth_geom);
+                            //
                             scene.add(object);
 
                             loaded++;
@@ -1043,11 +1043,11 @@
             //     6
             // );
 
-            // var panos = show_group_panos(
-            //     document.getElementById("input_panoramas").getElementsByClassName("render_window"),
-            //     [panos[0], panos[1], panos[2]],
-            //     6
-            // );
+            var panos = show_group_panos(
+                document.getElementById("input_panoramas").getElementsByClassName("render_window"),
+                [panos[0], panos[1], panos[2]],
+                6
+            );
 
             //meshes
             var meshes_paths = [
