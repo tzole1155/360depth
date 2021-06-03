@@ -542,7 +542,6 @@
         <script type="module">
             // import * as THREE from "https://unpkg.com/three/build/three.module.js";
             import * as THREE from './js/three.module.js';
-            import Geometry from './js/three.module.js';
            
             import { OrbitControls } from './js/controls/OrbitControls.js';
             import {OBJLoader} from "./js/loaders/OBJLoader.js";
@@ -835,7 +834,8 @@
                             //var mesh = new THREE.Mesh(g, m);
                             meshes[part_idx] = object;
                             //smooth function
-                            smooth_geom = new Geometry().fromBufferGeometry(object.geometry);
+                            var smooth_geom = new BufferGeometry(object.geometry);
+                            //smooth_geom = new Geometry().fromBufferGeometry(object.geometry);
                             smooth_geom.mergeVertices();
                             smooth_geom.computeVertexNormals();
                             smooth_geom.computeFaceNormals();
