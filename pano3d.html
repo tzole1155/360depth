@@ -834,7 +834,7 @@
                             //var mesh = new THREE.Mesh(g, m);
                             meshes[part_idx] = object;
                             //smooth function
-                            var smooth_geom = new BufferGeometry(object.geometry);
+                            var smooth_geom = new THREE.BufferGeometry(object.geometry);
                             //smooth_geom = new Geometry().fromBufferGeometry(object.geometry);
                             smooth_geom.mergeVertices();
                             smooth_geom.computeVertexNormals();
