@@ -431,6 +431,8 @@
                         </div>
                     </div>
 
+                    <h3>\(Meshes\)</h3>
+
                 <!-- <h3>Textured meshes</h3>
                 <div id="point_clouds">
                     <div class="render_container">
@@ -910,6 +912,12 @@
 					//var texture = new THREE.TextureLoader().load( 'panoramas/color_0.png' );
                     var texture = new THREE.TextureLoader().load(prefix);
 					var material = new THREE.MeshBasicMaterial( { map: texture } );
+
+                    //smooth function
+                    geometry.mergeVertices();
+                    geometry.computeVertexNormals();
+                    geometry.computeFaceNormals();
+                    //
 
 					var mesh = new THREE.Mesh( geometry, material );
 					meshes[pano_idx] = mesh;
