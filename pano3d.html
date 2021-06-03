@@ -836,11 +836,11 @@
                             //smooth function
                             //var smooth_geom = new THREE.BufferGeometry(object.geometry);
                             //smooth_geom = geom.fromBufferGeometry(object.geometry);
-                            smooth_geom = new Geometry().fromBufferGeometry(object.geometry);
-                            smooth_geom.mergeVertices();
-                            smooth_geom.computeVertexNormals();
-                            smooth_geom.computeFaceNormals();
-                            object.geometry = new THREE.BufferGeometry().fromGeometry(smooth_geom);
+                            // smooth_geom = new Geometry().fromBufferGeometry(object.geometry);
+                            // smooth_geom.mergeVertices();
+                            // smooth_geom.computeVertexNormals();
+                            // smooth_geom.computeFaceNormals();
+                            // object.geometry = new THREE.BufferGeometry().fromGeometry(smooth_geom);
                             //
                             scene.add(object);
 
