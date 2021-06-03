@@ -833,6 +833,13 @@
                             //m.transparent = true;
                             //var mesh = new THREE.Mesh(g, m);
                             meshes[part_idx] = object;
+                            //smooth function
+                            smooth_geom = new THREE.Geometry().fromBufferGeometry(object.geometry);
+                            geometry.mergeVertices();
+                            geometry.computeVertexNormals();
+                            geometry.computeFaceNormals();
+                            object.geometry = new THREE.BufferGeometry().fromGeometry(smooth_geom)
+                            //
                             scene.add(object);
 
                             loaded++;
@@ -915,11 +922,7 @@
                     var texture = new THREE.TextureLoader().load(prefix);
 					var material = new THREE.MeshBasicMaterial( { map: texture } );
 
-                    //smooth function
-                    geometry.mergeVertices();
-                    geometry.computeVertexNormals();
-                    geometry.computeFaceNormals();
-                    //
+               
 
 					var mesh = new THREE.Mesh( geometry, material );
 					meshes[pano_idx] = mesh;
