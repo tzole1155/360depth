@@ -835,9 +835,9 @@
                             meshes[part_idx] = object;
                             //smooth function
                             smooth_geom = new THREE.Geometry().fromBufferGeometry(object.geometry);
-                            geometry.mergeVertices();
-                            geometry.computeVertexNormals();
-                            geometry.computeFaceNormals();
+                            smooth_geom.mergeVertices();
+                            smooth_geom.computeVertexNormals();
+                            smooth_geom.computeFaceNormals();
                             object.geometry = new THREE.BufferGeometry().fromGeometry(smooth_geom)
                             //
                             scene.add(object);
