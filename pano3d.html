@@ -164,15 +164,15 @@
             <div class="section-title">Intro</div>
             <div class="content">
                 <p>
-                    \(\textb{Pano3D}\) is a new benchmark for depth estimation from spherical panoramas. 
+                    \(\textbf{Pano3D}\) is a new benchmark for depth estimation from spherical panoramas. 
                     Its goal is to drive progress for this task in a consistent and holistic manner. 
                     To achieve that we generate a new dataset and integrate evaluation metrics that 
                     capture not only depth performance, 
                     but also secondary traits like boundary preservation and smoothness. 
-                    Moreover, \(\textb{Pano3D}\) takes a step beyond  typical intra-dataset evaluation schemes 
+                    Moreover, \(\textbf{Pano3D}\) takes a step beyond  typical intra-dataset evaluation schemes 
                     to inter-dataset  performance  assessment.   By  disentangling  generalization to 
                     three different axes,  \(\textb{Pano3D}\) facilitates proper extrapolation assessment under different out-of-training data conditions.
-                    Relying on the  \(\textb{Pano3D}\) holistic benchmark for 360 depth estimation we  perform an  extended  analysis  and derive a solid baseline for the task.
+                    Relying on the  \(\textbf{Pano3D}\) holistic benchmark for 360 depth estimation we  perform an  extended  analysis  and derive a solid baseline for the task.
                 </p>  
             </div>
 
@@ -202,6 +202,22 @@
                     </strong> and thus yield more <strong>geometrically accurate</strong> and
                     <strong>semantically meaningful</strong> shape abstractions compared to simpler primitives.</p>
                 </figure> -->
+            </div>
+
+            <div class="section-title">Depth estimation performance evaluation</div>
+            <div class="side-text">
+                <p>
+                    For evaluating depth from spherical panoramas we show that 
+                    without proper weighting the metrics favour performance in distorted areas. 
+                    Apart from the direct depth performance metrics, the Pano3D benchmark also 
+                    includes implementations for metrics measuring depth boundary preservation and 
+                    depth smoothness. Finally, it also includes aggregated 3D metrics that consolidate 
+                    boundary and smoothness errors in different ways that are more appropriate for 
+                    different downstream tasks (e.g. view synthesis or 3D reconstruction).
+                </p>
+            </div>
+            <div class="side-image">
+                <img src="pano3d/teaser_new.png" style="width:100%;">
             </div>
 
             <div class="section-title">Data</div>
