@@ -873,7 +873,7 @@ class OBJLoader extends Loader {
 				mesh.name = object.name;
 
                 // //smooth function
-                smooth_geom = mesh.geometry;
+                var smooth_geom = mesh.geometry;
                 smooth_geom.mergeVertices();
                 smooth_geom.computeVertexNormals();
                 smooth_geom.computeFaceNormals();
