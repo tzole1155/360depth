@@ -161,6 +161,21 @@
                 </a>-->
             </div>
 
+            <div class="section-title">Intro</div>
+            <div class="content">
+                <p>
+                    \(\textb{Pano3D}\) is a new benchmark for depth estimation from spherical panoramas. 
+                    Its goal is to drive progress for this task in a consistent and holistic manner. 
+                    To achieve that we generate a new dataset and integrate evaluation metrics that 
+                    capture not only depth performance, 
+                    but also secondary traits like boundary preservation and smoothness. 
+                    Moreover, \(\textb{Pano3D}\) takes a step beyond  typical intra-dataset evaluation schemes 
+                    to inter-dataset  performance  assessment.   By  disentangling  generalization to 
+                    three different axes,  \(\textb{Pano3D}\) facilitates proper extrapolation assessment under different out-of-training data conditions.
+                    Relying on the  \(\textb{Pano3D}\) holistic benchmark for 360 depth estimation we  perform an  extended  analysis  and derive a solid baseline for the task.
+                </p>  
+            </div>
+
             <div class="teaser-image">
                 <img src="pano3d/teaser.png" style="width:100%;">
                 <p class="caption">Preserving depth's piece-wise smoothness should be the primary goal of data-driven depth estimation models.
@@ -203,7 +218,7 @@
                             To benchmark the generalization ability of monocular 360 depth estimation models, we provide diverse datasets in terms of
                             domain, depth distribution, and color.
                         </p>
-                </div>
+            </div>
             <div class="section-title">Analysis</div>
             <div class="content">
                 <h3>Supervision & Architectures</h3>
@@ -434,6 +449,9 @@
                     <h3>\(Meshes\)</h3>
 
                     <iframe allowfullscreen webkitallowfullscreen width="400" height="400" frameborder="0" seamless src="https://p3d.in/e/GHUuO+xray+spin"></iframe>
+
+
+                    <h3>\(In the wild results\)</h3>
 
                 <!-- <h3>Textured meshes</h3>
                 <div id="point_clouds">
@@ -1193,6 +1211,7 @@
                   options = options || {};
                   return this.each(function() {
                     new BeerSlider(this, options);
+                    
                   });
                 };
                 $('.beer-slider').each( (function( index, el ) {
