@@ -1,5 +1,4 @@
 import {
-    Geometry,
 	BufferGeometry,
 	FileLoader,
 	Float32BufferAttribute,
@@ -874,7 +873,7 @@ class OBJLoader extends Loader {
 				mesh.name = object.name;
 
                 // //smooth function
-                smooth_geom = new Geometry().fromBufferGeometry(mesh.geometry);
+                smooth_geom = mesh.geometry;
                 smooth_geom.mergeVertices();
                 smooth_geom.computeVertexNormals();
                 smooth_geom.computeFaceNormals();
