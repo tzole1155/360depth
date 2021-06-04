@@ -160,28 +160,18 @@
                     Blog
                 </a>-->
             </div>
-
-            <div class="section-title">Intro</div>
-            <div class="content">
-                <p>
-                    \(\textbf{Pano3D}\) is a new benchmark for depth estimation from spherical panoramas. 
+            <div class="teaser-image">
+                <img src="pano3d/teaser_new.png" style="width:50%;">
+                <p class="caption">\(\textbf{Pano3D}\) is a new benchmark for depth estimation from spherical panoramas. 
                     Its goal is to drive progress for this task in a consistent and holistic manner. 
                     To achieve that we generate a new dataset and integrate evaluation metrics that 
                     capture not only depth performance, 
                     but also secondary traits like boundary preservation and smoothness. 
                     Moreover, \(\textbf{Pano3D}\) takes a step beyond  typical intra-dataset evaluation schemes 
                     to inter-dataset  performance  assessment.   By  disentangling  generalization to 
-                    three different axes,  \(\textb{Pano3D}\) facilitates proper extrapolation assessment under different out-of-training data conditions.
+                    three different axes,  \(\textbf{Pano3D}\) facilitates proper extrapolation assessment under different out-of-training data conditions.
                     Relying on the  \(\textbf{Pano3D}\) holistic benchmark for 360 depth estimation we  perform an  extended  analysis  and derive a solid baseline for the task.
-                </p>  
-            </div>
-
-            <div class="teaser-image">
-                <img src="pano3d/teaser_new.png" style="width:50%;">
-                <p class="caption">Preserving depth's piece-wise smoothness should be the primary goal of data-driven depth estimation models.
-                    Yet most works only assess direct depth performance neglecting secondary traits like smoothness or boundary preservation.
-                    Different architectures (UNet -- left, or Pnas -- right) exhibit different inference characteristics skewed towards boundaries (UNet) or smoothness (Pnas).
-                    The Pano3D benchmark descends from a holistic perspective taking into account all performance traits, and additionally focuses on an orthogonal performance direction, generalization to unseen data from different distributions, contexts or domains. </p>
+                    </p>
                 <!-- <figure style="width: 49%;">
                     <video class="centered" width="100%" controls muted loop autoplay>
                         <source src="projects/neural_parts/motivation_cvxnet.mp4" type="video/mp4"/>
