@@ -105,29 +105,29 @@
                 <a href=https://zokin.github.io/>
                     Nikolaos Zioulis <sup>1,2</sup>
                 </a>
-                <a href=https://github.com/pdrak/>
+                <a href=https://github.com/pdrak>
                     Petros Drakoulis <sup>1</sup>
                 </a>
-                <a href=https://github.com/VasilisGks/>
+                <a href=https://github.com/VasilisGks>
                         Vasileios Gkitsas <sup>1</sup>
                 </a>
-                <a href=https://github.com/vladsterz/>
+                <a href=https://github.com/vladsterz>
                         Vladimiros Sterzentsenko  <sup>1</sup>
                 </a>
-                <a href=http://www.gatv.ssr.upm.es//>
+                <a href=http://www.gatv.ssr.upm.es>
                         Federico Alvarez  <sup>2</sup>
                 </a>
-                <a href=https://www.iti.gr/iti/people/Dimitrios_Zarpalas.html/>
-                        Dimitrios Zarpalas <sup>2</sup>
+                <a href=https://www.iti.gr/iti/people/Dimitrios_Zarpalas.html>
+                        Dimitrios Zarpalas <sup>1</sup>
                 </a>
-                <a href=https://www.iti.gr/iti/people/Petros_Daras.html/>
-                        Petros Daras <sup>2</sup>
+                <a href=https://www.iti.gr/iti/people/Petros_Daras.html>
+                        Petros Daras <sup>1</sup>
                     </a>
             </div>
 
             <div class="affiliations">
-                <span><sup>1</sup> Visual Computing Lab (VCL), Information Technologies Institute (ITI), Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece</span><br>
-                <span><sup>2</sup> Signals, Systems and Radiocommunications Department (SSRD), Universidad Politécnica de Madrid (UPM), Madrid, Spain</span> <br/>
+                <span><sup>1</sup> Centre for Research and Technology Hellas (CERTH), Thessaloniki, Greece</span><br>
+                <span><sup>2</sup> Universidad Politécnica de Madrid (UPM), Madrid, Spain</span> <br/>
             </div>
 
             <div class="project-conference">
@@ -135,7 +135,7 @@
             </div>
 
             <div class="project-icons">
-                <!-- <a href="https://arxiv.org/pdf/2103.10429.pdf"> -->
+                <a href="https://arxiv.org/pdf/2103.10429.pdf">
                     <i class="fa fa-file"></i> <br/>
                     Paper
                 <!-- </a> -->
@@ -172,26 +172,6 @@
                     three different axes,  \(\textbf{Pano3D}\) facilitates proper extrapolation assessment under different out-of-training data conditions.
                     Relying on the  \(\textbf{Pano3D}\) holistic benchmark for 360 depth estimation we  perform an  extended  analysis  and derive a solid baseline for the task.
                     </p>
-                <!-- <figure style="width: 49%;">
-                    <video class="centered" width="100%" controls muted loop autoplay>
-                        <source src="projects/neural_parts/motivation_cvxnet.mp4" type="video/mp4"/>
-                    </video>
-                    <p class="caption">Existing primitive-based methods rely on
-                    simple shapes for decomposing complex 3D shapes into
-                    parts. As a result, they <strong>require a large number of primitives</strong>
-                    for extracting accurate reconstructions. However, this results in <strong>
-                    less interpretable shape abstractions</strong>, namely
-                    <strong>primitives are not semantically meaningful parts</strong>.</p>
-                </figure>
-                <figure style="width: 49%;">
-                    <video class="centered" width="100%" controls muted loop autoplay>
-                        <source src="projects/neural_parts/motivation_ours.mp4" type="video/mp4"/>
-                    </video>
-                    <p class="caption">Neural Parts is a novel 3D primitive representation that can
-                    <strong>represent arbitrarily complex genus-zero shapes
-                    </strong> and thus yield more <strong>geometrically accurate</strong> and
-                    <strong>semantically meaningful</strong> shape abstractions compared to simpler primitives.</p>
-                </figure> -->
             </div>
 
             <div class="section-title">Depth estimation performance evaluation</div>
@@ -199,19 +179,76 @@
                 <p>
                     For evaluating depth from spherical panoramas we show that 
                     without proper weighting the metrics favour performance in distorted areas. 
-                    Apart from the direct depth performance metrics, the Pano3D benchmark also 
-                    includes implementations for metrics measuring depth boundary preservation and 
-                    depth smoothness. Finally, it also includes aggregated 3D metrics that consolidate 
+                    Apart from the <span style="color: #1c20e6"><b>direct depth performance metrics</b></span>, the Pano3D benchmark also 
+                    includes implementations for metrics measuring <span style="color: #e62a1c"><b>depth boundary preservation</b></span> and 
+                    <span style="color: #05bd14"><b>depth smoothness.</b></span>. Finally, it also includes aggregated 3D metrics that consolidate 
                     boundary and smoothness errors in different ways that are more appropriate for 
                     different downstream tasks (e.g. view synthesis or 3D reconstruction).
                 </p>
+                <table style="width:100%" cellspacing="0">
+                    <tr>
+                        <th style="text-align: center;background-color: #1c1fe671;">
+                            Direct [1,2]
+                        </th>
+                        <th style="text-align: center;background-color: #e62a1c9c">
+                            Boundary
+                        </th>
+                        <th style="text-align: center;background-color:#05bd1485">
+                            Smoothness[5]
+                        </th>
+                        <th style="text-align: center;background-color: #05a1bdaf;">
+                            Geometrical
+                        </th>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <ol>
+                                <li>\(\textit{(w)RMSE}\)</li>
+                                <li>\(\textit{(w)RMSLE}\)</li>
+                                <li>\(\textit{AbsRel}\)</li>
+                                <li>\(\textit{SqRel}\)</li>
+                                <li>\((w)\delta_{1.05}\)</li>
+                                <li>\((w)\delta_{1.25^2}\)</li>
+                                <li>\((w)\delta_{1.25^3}\)</li>
+                            </ol>
+                        </td>
+                        <td style="vertical-align: top;">
+                            <ol>
+                                <li>\(\textit{prec}_{0.25}\) [3]</li>
+                                <li>\(\textit{prec}_{0.5}\) [3]</li>
+                                <li>\(\textit{prec}_{1.0}\) [3]</li>
+                                <li>\(\textit{rec}_{0.25}\) [3]</li>
+                                <li>\(\textit{rec}_{0.5}\) [3]</li>
+                                <li>\(\textit{rec}_{1.0}\)[3]</li>
+                                <li>\(\textit{dbe}^{acc}\) [4]</li>
+                                <li>\(\textit{dbe}^{comp}\) [4]</li>
+                            </ol>
+                        </td>
+                        <td style="vertical-align: top;">
+                            <ol>
+                                <li>\(\textit{RMSE}^o\)</li>
+                                <li>\(\alpha_{11.25^o}\)</li>
+                                <li>\(\alpha_{22.50^o}\)</li>
+                                <li>\(\alpha_{30.00^o}\)</li>
+                            </ol>
+
+                        </td>
+                        <td style="vertical-align: top;">
+                            <ol>
+                                <li>\(\textit{c2c}\) [6]</li>
+                                <li>\(\textit{m2m}\) [7]</li>
+                            </ol>
+                        </td>
+                    </tr>
+                  
+                </table>
             </div>
             <div class="side-image">
-                <img src="pano3d/teaser_new.png" style="width:100%;">
+                <img src="pano3d/depth_estimation.png" style="width:100%;">
             </div>
-            <div class="section-title">Generalization capacity assessmentn</div>
+            <div class="section-title">Generalization capacity assessment</div>
             <div class="side-image">
-                <img src="pano3d/teaser_new.png" style="width:100%;">
+                <img src="pano3d/generalisation.png" style="width:100%;">
             </div>
             <div class="side-text">
                 <p>
@@ -219,7 +256,11 @@
                     Even though careful selection of the test samples can guarantee the quality of the evaluation, the dataset 
                     generation process may sometimes be biased due to inherent data collection reasons 
                     (e.g. same camera types, restricted availability of capture targets). 
-                    To overcome such issues and take a step towards measuring progress in in-the-wild settings, we decompose generalization into three different axes: i) target depth distribution, ii) scene context, and iii) varying camera domain. We render the GibsonV2 dataset [8] and split it to deliver test sets belonging to each axis.
+                    To overcome such issues and take a step towards measuring progress in in-the-wild settings, we decompose generalization into three different axes: 
+                    i) <span style="color: #f7a206"><b>target depth distribution</b></span>, 
+                    ii) <span style="color: #6206f7"><b>scene context</b></span>, and
+                    iii) <span style="color: #f706cf"><b>varying camera domain</b></span>. 
+                    We render the GibsonV2 dataset [8] and split it to deliver test sets belonging to each axis.
                 </p>
             </div>
 
@@ -234,6 +275,46 @@
                         and can be used as additional training data.
 
                     </p>
+                    <!-- Slideshow container -->
+                    <div class="slideshow-container">
+
+                        <div class="mySlides fade">
+                          <!-- <div class="numbertext">1 / 3</div> -->
+                          <img src="pano3d/dataset/tiny3.png" style="width:70%">
+                          <div class="text">GV2 Tiny split</div>
+                        </div>
+                        
+                        <div class="mySlides fade">
+                          <!-- <div class="numbertext">2 / 3</div> -->
+                          <img src="pano3d/dataset/medium1.png" style="width:70%">
+                          <div class="text">GV2 Medium split</div>
+                        </div>
+                        
+                        <div class="mySlides fade">
+                            <!-- <div class="numbertext">2 / 3</div> -->
+                            <img src="pano3d/dataset/fullplus1.png" style="width:70%">
+                            <div class="text">GV2 Full+ split</div>
+                          </div>
+                        <div class="mySlides fade">
+                            <!-- <div class="numbertext">2 / 3</div> -->
+                            <img src="pano3d/dataset/filmic3.png" style="width:70%">
+                            <div class="text">GV2 Filmic</div>
+                          </div>
+                        <div class="mySlides fade">
+                            <!-- <div class="numbertext">2 / 3</div> -->
+                            <img src="pano3d/dataset/pano3d.png" style="width:70%">
+                            <div class="text">M3D</div>
+                          </div>
+                        <br>
+                        <div style="text-align:center">
+                            <span class="dot"></span> 
+                            <span class="dot"></span> 
+                            <span class="dot"></span> 
+                            <span class="dot"></span>
+                            <span class="dot"></span>  
+                          </div>
+                        
+                    </div>
                     <h3>Download</h3>
                     <p>
                         To download the Pano3D dataset we follow a two-step process:
@@ -241,11 +322,11 @@
                             <li>
                                 Access to the Pano3D dataset requires agreement with the terms and conditions for each of the 3D datasets
                                 that were used to create (i.e. render) it, and more specifically, Matterport3D [9] and GibsonV2 [8]. 
-                                Therefore, in order to grant you access to this dataset, we need you to first fill [this request form].
+                                Therefore, in order to grant you access to this dataset, we need you to first fill <a href="" >request form</a>.
                             </li>
                             <li>
                                 Then, you need to perform a request for access to the respective Zenodo repositories, 
-                                where the data are hosted (more information can be found in our [download page]). 
+                                where the data are hosted (more information can be found in our <a href="" >download page</a>). 
                                 Due to data-size limitations, the dataset is split into six (6) repositories, 
                                 which respectively contain the color image, depth and normal map renders for each image. 
                                 The repositories are split into the two resolutions, with each subgroup of 3 repositories 
@@ -256,7 +337,7 @@
                             </li>
                         </ol>
                         <b>Note</b> that only completing one step of the two (i.e. only filling out the form, or only requesting access 
-                        from the Zenodo repositories) will not be enough to get access to the data. 
+                        from the Zenodo repositories) <b>will not</b> be enough to get access to the data. 
                         We will do our best to contact you in such cases and notify you to complete all steps as needed, 
                         but our mails may be lost (e.g. spam filters/folders). 
                         The only exception to this, is if you have already filled in the form and need access to another Zenodo repository 
@@ -324,7 +405,7 @@
                 To holistically assess the different models, we employ performance indicators that aggregate metrics across the different dimensions:
                 <ul>
                     <li>\(i_d = \frac{1}{(1 - \delta_{1.25}) \times RMSE}\)</li>
-                    <li>\(i_b = \frac{1}{(1 - \frac{(rec_{0.25} + rec_{0.5} + rec_{1.0})}{3}) \times dbe^{acc}}\)</li>
+                    <li>\(i_b = \frac{1}{(1 - \frac{(F_{0.25} + F_{0.5} + F_{1.0})}{3}) \times dbe^{acc}}\)</li>
                     <li>\(i_s = \frac{1}{(1 - \frac{(\alpha_{11.25^o} + \alpha_{22.5^o} + \alpha_{30^o})}{3}) \times RMSE^o}\)</li>
                 </ul>
                 <div class="indicators">
@@ -357,14 +438,14 @@
                     estimated depth maps.
                     <!-- ResNet -->
 
-                    <h4>\(\color{#008000}{ResNet}\) </h4>
+                    <h4>\(\color{#E3D10A}{ResNet}\) </h4>
                     <table>
                         <tr>
                             <td>
                                 <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
                                     <img src="pano3d/qualitative/color/color_9.png" alt="">
-                                    <div class="beer-reveal" data-beer-label="ResNetSkip">
-                                    <img src="pano3d/qualitative/skip/skip_9.png" alt="">
+                                    <div class="beer-reveal" data-beer-label="ResNet">
+                                    <img src="pano3d/qualitative/normals/resnet/normal_9.png" alt="">
                                     </div>
                                 </div>
                             </td>
@@ -376,14 +457,14 @@
                     
                     <!-- DenseNet -->
 
-                    <h4>\(\color{#008445}{DenseNet}\)</h4>
+                    <h4>\(\color{#800080}{DenseNet}\)</h4>
                     <table>
                         <tr>
                             <td>
                                 <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
                                     <img src="pano3d/qualitative/color/color_9.png" alt="">
-                                    <div class="beer-reveal" data-beer-label="ResNetSkip">
-                                    <img src="pano3d/qualitative/skip/skip_9.png" alt="">
+                                    <div class="beer-reveal" data-beer-label="DenseNet">
+                                    <img src="pano3d/qualitative/normals/densenet/normal_9.png" alt="">
                                     </div>
                                 </div>
                             </td>
@@ -394,14 +475,14 @@
                     </table>
 
                     <!-- PNAS -->
-                    <h4>\(\color{#008445}{PNAS}\)</h4>
+                    <h4>\(\color{#00FFFF}{PNAS}\)</h4>
                     <table>
                         <tr>
                             <td>
                                 <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
                                     <img src="pano3d/qualitative/color/color_9.png" alt="">
-                                    <div class="beer-reveal" data-beer-label="ResNetSkip">
-                                    <img src="pano3d/qualitative/skip/skip_9.png" alt="">
+                                    <div class="beer-reveal" data-beer-label="Pnas">
+                                    <img src="pano3d/qualitative/normals/pnas/normal_9.png" alt="">
                                     </div>
                                 </div>
                             </td>
@@ -413,14 +494,14 @@
 
                     <!-- ResNet_skip -->
                     
-                    <h4>\(\color{#008445}{ResNet_skip}\)</h4>
+                    <h4>\(\color{#FF00FF}{ResNet_{skip}}\)</h4>
                     <table>
                         <tr>
                             <td>
                                 <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
                                     <img src="pano3d/qualitative/color/color_9.png" alt="">
                                     <div class="beer-reveal" data-beer-label="ResNetSkip">
-                                    <img src="pano3d/qualitative/skip/skip_9.png" alt="">
+                                    <img src="pano3d/qualitative/normals/skip/normal_9.png" alt="">
                                     </div>
                                 </div>
                             </td>
@@ -432,14 +513,14 @@
 
                     <!-- UNet -->
                     
-                    <h4>\(\color{#008445}{UNet}\)</h4>
+                    <h4>\(\color{#FFA600}{UNet}\)</h4>
                     <table>
                         <tr>
                             <td>
                                 <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
                                     <img src="pano3d/qualitative/color/color_9.png" alt="">
-                                    <div class="beer-reveal" data-beer-label="ResNetSkip">
-                                    <img src="pano3d/qualitative/skip/skip_9.png" alt="">
+                                    <div class="beer-reveal" data-beer-label="Unet">
+                                    <img src="pano3d/qualitative/normals/unet/normal_9.png" alt="">
                                     </div>
                                 </div>
                             </td>
@@ -500,284 +581,162 @@
                 preservation performance, naturally at the expense of smoothness, but their direct depth estimation performance 
                 does not suffer from this. The following comparison between the UNet and PNAS architecture (used in [19]) shows this 
                 different, with the advantage figure on the right (similar to [20]) illustrating the areas where each model performers better than the other
-            </div>
-            <div class="section-title">Results</div>
-                <div class="content">
-                    <h3>Boundary preservation qualitative comparison</h3>
-            
-                    <h3>\(ResNet\) \(vs\) \(ResNet_{skip}\)</h3>
-                        <!-- <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
-                            <img src="depth/color_20.jpg" alt="">
-                            <div class="beer-reveal" data-beer-label="UNet">
-                            <img src="depth/depth_t_0_20.jpg" alt="">
+                <h3>\(ResNet\) \(vs\) \(ResNet_{skip}\)</h3>
+                <table>
+                    <tr>
+                        <td>
+                            <div id="beer-slider" class="beer-slider" data-beer-label="ResNet" data-beer-start="40">
+                                <img src="pano3d/qualitative/skip/skip_9.png" alt="">
+                                <div class="beer-reveal" data-beer-label="ResNetSkip">
+                                <img src="pano3d/qualitative/resnet/resnet_9.png" alt="">
+                                </div>
                             </div>
-                        </div> -->
-
-                        <!-- <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
-                            <img src="pano3d/qualitative/color/color_9.png" alt="">
-                            <div class="beer-reveal" data-beer-label="ResNet">
-                            <img src="pano3d/qualitative/resnet/resnet_9.png" alt="">
+                        </td>
+                        <td>
+                            <div class="beer-slider" data-beer-label="Advantage">
+                                <img src="pano3d/qualitative/skip_advantage/adv_9.png" alt="">
                             </div>
-                        </div>
+                        </td>
+                    </tr>
 
-                        <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
-                            <img src="pano3d/qualitative/color/color_9.png" alt="">
-                            <div class="beer-reveal" data-beer-label="ResNetSkip">
-                            <img src="pano3d/qualitative/skip/skip_9.png" alt="">
-                            </div>
-                        </div> -->
+                </table>
 
-                        <!-- <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
-                            <img src="pano3d/qualitative/color/color_9.png" alt="">
-                            <div class="beer-reveal" data-beer-label="Advantage">
-                            <img src="pano3d/qualitative/skip_advantage/adv_9.png" alt="">
-                            </div>
-                        </div>
-
-                        <div id="beer-slider" class="beer-slider" data-beer-label="ResNet" data-beer-start="40">
-                            <img src="pano3d/qualitative/skip/skip_9.png" alt="">
-                            <div class="beer-reveal" data-beer-label="ResNetSkip">
-                            <img src="pano3d/qualitative/resnet/resnet_9.png" alt="">
-                            </div>
-                        </div> -->
-
-                        <table>
-                            <tr>
-                                <td>
-                                    <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
-                                        <img src="pano3d/qualitative/color/color_9.png" alt="">
-                                        <div class="beer-reveal" data-beer-label="ResNetSkip">
-                                        <img src="pano3d/qualitative/skip/skip_9.png" alt="">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="beer-slider" data-beer-label="Surface Normals">
-                                        <img src="pano3d/qualitative/normals/skip/normal_9.png" alt="">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                            <tr>
-                                <td>
-                                    <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
-                                        <img src="pano3d/qualitative/color/color_9.png" alt="">
-                                        <div class="beer-reveal" data-beer-label="ResNet">
-                                        <img src="pano3d/qualitative/resnet/resnet_9.png" alt="">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="beer-slider" data-beer-label="Surface Normals">
-                                        <img src="pano3d/qualitative/normals/resnet/normal_9.png" alt="">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div id="beer-slider" class="beer-slider" data-beer-label="ResNet" data-beer-start="40">
-                                        <img src="pano3d/qualitative/skip/skip_9.png" alt="">
-                                        <div class="beer-reveal" data-beer-label="ResNetSkip">
-                                        <img src="pano3d/qualitative/resnet/resnet_9.png" alt="">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="beer-slider" data-beer-label="Advantage">
-                                        <img src="pano3d/qualitative/skip_advantage/adv_9.png" alt="">
-                                    </div>
-                                </td>
-                            </tr>
-
-                        </table>
-
-                        <p class="caption">
-                            Qualitative comparison between \(ResNet\) \(and\) \(ResNet_{skip}\). 
-                            It is apparent that the addition of skip connections allows \(ResNet_{skip}\) to capture finer-grained details.
-                        </p>
-                        
-                    <h3>\(Unet\) \(vs\) \(Pnas\)</h3>
-
-                        <table>
-                            <tr>
-                                <td>
-                                    <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
-                                        <img src="pano3d/qualitative/color/color_74.png" alt="">
-                                        <div class="beer-reveal" data-beer-label="\(UNet\)">
-                                        <img src="pano3d/qualitative/unet/unet_74.png" alt="">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="beer-slider" data-beer-label="Surface Normals">
-                                        <img src="pano3d/qualitative/normals/unet/normal_74.png" alt="">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                            <tr>
-                                <td>
-                                    <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
-                                        <img src="pano3d/qualitative/color/color_74.png" alt="">
-                                        <div class="beer-reveal" data-beer-label="Pnas">
-                                        <img src="pano3d/qualitative/pnas/pnas_74.png" alt="">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="beer-slider" data-beer-label="Surface Normals">
-                                        <img src="pano3d/qualitative/normals/pnas/normal_74.png" alt="">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div id="beer-slider" class="beer-slider" data-beer-label="Pnas" data-beer-start="40">
-                                        <img src="pano3d/qualitative/pnas/pnas_74.png" alt="">
-                                        <div class="beer-reveal" data-beer-label="Unet">
-                                        <img src="pano3d/qualitative/unet/unet_74.png" alt="">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="beer-slider" data-beer-label="Advantage">
-                                        <img src="pano3d/qualitative/skip_advantage/adv_74.png" alt="">
-                                    </div>
-                                </td>
-                            </tr>
-
-                        </table>
-                        <p class="caption">
-                            Qualitative comparison between \(Unet\) \(and\) \(Pnas\). 
-                            Apparenntly,  \(Pnas\) provides smoother results while it is clear that \(Unet\) is able to capture finer-grained details.
-                        </p>
-
-                    <h3>Input Panoramas</h3>
-                    <!-- <div id="input_panoramas">
-                        <div class="render_container">
-                            <div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div>
-                        </div>
-                    </div>
-
-                    <h3>Predicted meshes</h3>
-                    <div id="pred_meshes">
-                        <div class="render_container">
-                            <div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div>
-                        </div>
-                    </div> -->
-
-                    <h3>\(Meshes\)</h3>
-
-                    <iframe allowfullscreen webkitallowfullscreen width="400" height="400" frameborder="0" seamless src="https://p3d.in/e/GHUuO+xray+spin"></iframe>
-
-
-                    <h3>\(In the wild results\)</h3>
-
-                <!-- <h3>Textured meshes</h3>
-                <div id="point_clouds">
-                    <div class="render_container">
-                        <div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div>
-                    </div>
-                </div> -->
-
-                <!-- <h3>Humans</h3>
-                <div id="humans">
-                    <div class="controls">
-                        <div class="left-controls">
-                            Show
-                            <input type="checkbox" id="humans_all" checked><label for="humans_all">all parts</label>
-                            <input type="checkbox" id="humans_head"><label for="humans_head">heads</label>
-                            <input type="checkbox" id="humans_body"><label for="humans_body">bodies</label>
-                            <input type="checkbox" id="humans_left_hand"><label for="humans_left_hand">left-arms</label>
-                            <input type="checkbox" id="humans_right_hand"><label for="humans_right_hand">right-arms</label>
-                            <input type="checkbox" id="humans_left_leg"><label for="humans_left_leg">left-legs</label>
-                            <input type="checkbox" id="humans_right_leg"><label for="humans_right_leg">right-legs</label>
-                        </div>
-                        <div class="right-controls">
-                            <button>Randomize</button>
-                        </div>
-                    </div>
-                    <div class="render_container">
-                        <div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div>
-                    </div>
-                </div>
-
-                <h3>Planes</h3>
-                <div id="planes">
-                    <div class="controls">
-                        <div class="left-controls">
-                            Show
-                            <input type="checkbox" id="planes_all" checked><label for="planes_all">all parts</label>
-                            <input type="checkbox" id="planes_nose"><label for="planes_nose">noses</label>
-                            <input type="checkbox" id="planes_body"><label for="planes_body">bodies</label>
-                            <input type="checkbox" id="planes_left_wing"><label for="planes_left_wing">left-wings</label>
-                            <input type="checkbox" id="planes_right_wing"><label for="planes_right_wing">right-wings</label>
-                            <input type="checkbox" id="planes_tail"><label for="planes_tail">tails</label>
-                        </div>
-                        <div class="right-controls">
-                            <button>Randomize</button>
-                        </div>
-                    </div>
-                    <div class="render_container">
-                        <div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div><div data-size="400" class="render_window"></div>
-                    </div>
-                </div> -->
-                </div>
-
-            <!-- <div class="section-title">Comparison to Primitive-based Methods</div>
-            <div class="content">
-                <p>
-                    We compare the representation power of Neural Parts to
-                    other primitive-based methods by evaluating the
-                    reconstruction quality with varying number of primitives on
-                    three datasets. We observe that our model is <strong>more
-                    geometrically accurate, more semantically consistent and
-                    yields more meaningful parts</strong> (i.e. primitives are
-                    identifiable parts such as thumbs, legs, wings, tires,
-                    etc.) compared to simpler primitives.
+                <p class="caption">
+                    Qualitative comparison between \(ResNet\) \(and\) \(ResNet_{skip}\). 
+                    It is apparent that the addition of skip connections allows \(ResNet_{skip}\) to capture finer-grained details.
                 </p>
-                <div class="glide">
-                    <div class="glide__bullets" data-glide-el="controls[nav]">
-                        <button class="glide__bullet" data-glide-dir="=0">Humans</button>
-                        <button class="glide__bullet" data-glide-dir="=1">Hands</button>
-                        <button class="glide__bullet" data-glide-dir="=2">Chairs</button>
-                        <button class="glide__bullet" data-glide-dir="=3">Planes</button>
-                        <button class="glide__bullet" data-glide-dir="=4">Cars</button>
-                        <button class="glide__bullet" data-glide-dir="=5">Lamps</button>
-                    </div>
-                    <div class="glide__track" data-glide-el="track">
-                        <ul class="glide__slides">
-                            <li class="glide__slide"><img src="projects/neural_parts/comparison/humans.png"></li>
-                            <li class="glide__slide"><img src="projects/neural_parts/comparison/hands.png"></li>
-                            <li class="glide__slide"><img src="projects/neural_parts/comparison/chairs.png"></li>
-                            <li class="glide__slide"><img src="projects/neural_parts/comparison/planes.png"></li>
-                            <li class="glide__slide"><img src="projects/neural_parts/comparison/cars.png"></li>
-                            <li class="glide__slide"><img src="projects/neural_parts/comparison/lamps.png"></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
 
-            <div class="section-title">Semantic Consistency</div>
-            <div class="content">
-                We observe that Neural Parts consistently use the same
-                primitive for representing the same object part regardless of
-                the breadth of the part's motion. Notably, this
-                <strong>temporal consistency is an emergent property</strong>
-                of our method and <strong>not one that is enforced with any
-                kind of loss</strong>.
-                <video class="centered" width="100%" controls muted loop autoplay>
-                    <source
-                        src="projects/neural_parts/semantic-consistency-shorter.mp4"
-                        type="video/mp4" />
-                </video>
-            </div> -->
+                <h3>\({UNet}\) \(vs\) \({PNAS}\)</h3>
+
+                <table>
+                    <tr>
+                        <td>
+                            <div id="beer-slider" class="beer-slider" data-beer-label="Pnas" data-beer-start="40">
+                                <img src="pano3d/qualitative/pnas/pnas_9.png" alt="">
+                                <div class="beer-reveal" data-beer-label="Unet">
+                                <img src="pano3d/qualitative/unet/unet_9.png" alt="">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="beer-slider" data-beer-label="Advantage">
+                                <img src="pano3d/qualitative/skip_advantage/adv_9.png" alt="">
+                            </div>
+                        </td>
+                    </tr>
+
+                </table>
+                <p class="caption">
+                    Qualitative comparison between \(\color{#FFA600}{UNet}\) \(and\) \(\color{#00FFFF}{PNAS}\). 
+                    Apparenntly,  \(\color{#00FFFF}{PNAS}\) provides smoother results while it is clear that \(\color{#FFA600}{UNet}\) is able to capture finer-grained details.
+                </p>
+                
+            </div>
+            <div class="section-title">In-the-wild Results</div>
+                <div class="content">
+            
+                   <p>
+                    The Pano3D baseline is a solid panorama depth estimation model that is positioned favourably against the state-of-the-art, 
+                    with the following samples showing the BiFuse [21] predictions, compared to the UNet ones, when applied to in-the-wild panoramas 
+                    acquired via both 360 cameras and stitched mobile phone captures.
+                   </p>
+                </div>
 
             <div class="section-title">Acknowledgements</div>
             <div class="content">
                 This project has received funding from the European Union’s Horizon 2020 innovation programme <a href="https://atlantis-ar.eu/">ATLANTIS</a> under grant agreement No 951900.
             </div>
+            <div class="section-title">References</div>
+            <div class="content">
+                <ol>
+                    <li>
+                        Eigen, D., Puhrsch, C. and Fergus, R., 2014. Depth map prediction from a single image using a multi-scale deep network. arXiv preprint arXiv:1406.2283.
+                    </li>
+                    <li>
+                        Zioulis, N., Karakottas, A., Zarpalas, D., Alvarez, F. and Daras, P., 2019, September. Spherical view synthesis for self-supervised 360 depth estimation. In 2019 International Conference on 3D Vision (3DV) (pp. 690-699). IEEE.
+                    </li>
+                    <li>
+                        Hu, J., Ozay, M., Zhang, Y. and Okatani, T., 2019, January. Revisiting single image depth estimation: Toward higher resolution maps with accurate object boundaries. In 2019 IEEE Winter Conference on Applications of Computer Vision (WACV) (pp. 1043-1051). IEEE
+                    </li>
+                    <li>
+                        Koch, T., Liebel, L., Fraundorfer, F. and Korner, M., 2018. Evaluation of cnn-based single-image depth estimation methods. In Proceedings of the European Conference on Computer Vision (ECCV) Workshops (pp. 0-0)
+                    </li>
+                    <li>
+                        Wang, X., Fouhey, D. and Gupta, A., 2015. Designing deep networks for surface normal estimation. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (pp. 539-547).
+                    </li>
+                    <li>
+                        Girardeau-Montaut, D., 2006. Détection de changement sur des données géométriques tridimensionnelles (Doctoral dissertation, Télécom ParisTech).
+                    </li>
+                    <li>
+                        Cignoni, P., Rocchini, C. and Scopigno, R., 1998, June. Metro: measuring error on simplified surfaces. In Computer graphics forum (Vol. 17, No. 2, pp. 167-174). Oxford, UK and Boston, USA: Blackwell Publishers.
+                    </li>
+                    <li>
+                        Xia, F., Li, C., Chen, K., Shen, W.B., Martín-Martín, R., Hirose, N., Zamir, A.R., Fei-Fei, L. and Savarese, S., 2019. Gibson env v2: Embodied simulation environments for interactive navigation. Stanford University, Tech. Rep
+                    </li>
+                    <li>
+                        Chang, A., Dai, A., Funkhouser, T., Halber, M., Niessner, M., Savva, M., Song, S., Zeng, A. and Zhang, Y., 2017. Matterport3d: Learning from rgb-d data in indoor environments. arXiv preprint arXiv:1709.06158
+                    </li>
+                    <li>
+                        He, K., Zhang, X., Ren, S. and Sun, J., 2016, October. Identity mappings in deep residual networks. In European conference on computer vision (pp. 630-645). Springer, Cham.
+                    </li>
+                    <li>
+                        Iandola, F., Moskewicz, M., Karayev, S., Girshick, R., Darrell, T. and Keutzer, K., 2014. Densenet: Implementing efficient convnet descriptor pyramids. arXiv preprint arXiv:1404.1869.
+                    </li>
+                    <li>
+                        Liu, C., Zoph, B., Neumann, M., Shlens, J., Hua, W., Li, L.J., Fei-Fei, L., Yuille, A., Huang, J. and Murphy, K., 2018. Progressive neural architecture search. In Proceedings of the European conference on computer vision (ECCV) (pp. 19-34).
+                    </li>
+                    <li>
+                        Ronneberger, O., Fischer, P. and Brox, T., 2015, October. U-net: Convolutional networks for biomedical image segmentation. In International Conference on Medical image computing and computer-assisted intervention (pp. 234-241). Springer, Cham.
+                    </li>
+                    <li>
+                        Carvalho, M., Le Saux, B., Trouvé-Peloux, P., Almansa, A. and Champagnat, F., 2018, October. On regression losses for deep depth estimation. In 2018 25th IEEE International Conference on Image Processing (ICIP) (pp. 2915-2919). IEEE
+                    </li>
+                    <li>
+                        Li, Z. and Snavely, N., 2018. Megadepth: Learning single-view depth prediction from internet photos. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (pp. 2041-2050).
+                    </li>
+                    <li>
+                        Yin, W., Liu, Y., Shen, C. and Yan, Y., 2019. Enforcing geometric constraints of virtual normal for depth prediction. In Proceedings of the IEEE/CVF International Conference on Computer Vision (pp. 5684-5693).
+                    </li>
+                    <li>
+                        Kazhdan, M., Bolitho, M. and Hoppe, H., 2006, June. Poisson surface reconstruction. In Proceedings of the fourth Eurographics symposium on Geometry processing (Vol. 7).
+                    </li>
+                    <li>
+                        Ramamonjisoa, M., Du, Y. and Lepetit, V., 2020. Predicting sharp and accurate occlusion boundaries in monocular depth estimation using displacement fields. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 14648-14657).
+                    </li>
+                    <li>
+                        Lee, J. and Kim, C.S., 2020, August. Multi-loss Rebalancing Algorithm for Monocular Depth Estimation. In ECCV (17) (pp. 785-801).
+                    </li>
+                    <li>
+                        Sun, C., Sun, M. and Chen, H.T., 2020. HoHoNet: 360 Indoor Holistic Understanding with Latent Horizontal Features. arXiv preprint arXiv:2011.11498.
+                    </li>
+                    <li>
+                        Wang, F.E., Yeh, Y.H., Sun, M., Chiu, W.C. and Tsai, Y.H., 2020. Bifuse: Monocular 360 depth estimation via bi-projection fusion. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 462-471).
+                    </li>
+                </ol>
+            </div>
         </div>
+
+        <script>
+            var slideIndex = 0;
+            showSlides();
+            
+            function showSlides() {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("dot");
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+              }
+              slideIndex++;
+              if (slideIndex > slides.length) {slideIndex = 1}    
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";  
+              dots[slideIndex-1].className += " active";
+              setTimeout(showSlides, 2000); // Change image every 2 seconds
+            }
+            </script>
 
         <script type="module">
             // import * as THREE from "https://unpkg.com/three/build/three.module.js";
