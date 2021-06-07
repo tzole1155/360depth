@@ -634,12 +634,22 @@
             </div>
             <div class="section-title">In-the-wild Results</div>
                 <div class="content">
-            
                    <p>
                     The Pano3D baseline is a solid panorama depth estimation model that is positioned favourably against the state-of-the-art, 
                     with the following samples showing the BiFuse [21] predictions, compared to the UNet ones, when applied to in-the-wild panoramas 
                     acquired via both 360 cameras and stitched mobile phone captures.
                    </p>
+                   <h3>\({UNet}\) \(vs\) \({BiFuse [21]}\)</h3>
+                   <table>
+                    <tr>
+                        <td>
+                            <div id="container" class="center"></div>
+                        </td>
+                    </tr>
+                    </table>
+                    <p class="caption">
+                        Qualitative comparison between \({UNet}\) \(and\) \({BiFuse [21]}\).
+                    </p>
                 </div>
 
             <div class="section-title">Acknowledgements</div>
@@ -738,7 +748,7 @@
             }
             </script>
 
-        <script type="module">
+        <!-- <script type="module">
             // import * as THREE from "https://unpkg.com/three/build/three.module.js";
             import * as THREE from './js/three.module.js';
            
@@ -1232,9 +1242,9 @@
 
             // panoramas
             var panos = [
-                "panoramas/color_0.png",
-                "panoramas/color_7.png",
-                "panoramas/color_21.png",
+                "panoramas/GS__0015.jpg",
+                "panoramas/GS__0119.png",
+                "panoramas/GS__0120.png",
             ];
             // var human_control = show_group(
             //     document.getElementById("humans").getElementsByClassName("render_window"),
@@ -1242,11 +1252,11 @@
             //     6
             // );
 
-            // var panos = show_group_panos(
-            //     document.getElementById("input_panoramas").getElementsByClassName("render_window"),
-            //     [panos[0], panos[1], panos[2]],
-            //     6
-            // );
+            var panos = show_group_panos(
+                document.getElementById("input_panoramas").getElementsByClassName("render_window"),
+                [panos[0], panos[1], panos[2]],
+                6
+            );
 
             //meshes
             var meshes_paths = [
@@ -1381,7 +1391,191 @@
             //         );
             //     }
             // );
-        </script>
+        </script> -->
+
+        <script type="module">
+
+			import * as THREE from './js/three.module.js';
+
+			let camera, scene, renderer;
+
+			let isUserInteracting = false,
+				onPointerDownMouseX = 0, onPointerDownMouseY = 0,
+				lon = 92, onPointerDownLon = 0,
+				lat = -53.4, onPointerDownLat = 0,
+				phi = 0, theta = 0, fov=60,
+				width = 640, height = 480;
+
+			init();
+			animate();
+            
+
+			function init() {
+
+				const container = document.getElementById( 'container' );
+
+				//camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1100 );
+				camera = new THREE.PerspectiveCamera( fov, width/height, 1, 1100 );
+
+				scene = new THREE.Scene();
+
+				const geometry = new THREE.SphereGeometry( 500, 60, 40 );
+				// invert the geometry on the x-axis so that all of the faces point inward
+				geometry.scale( - 1, 1, 1 );
+
+				const texture = new THREE.TextureLoader().load( 'panoramas/GS__0015.jpg' );
+				const material = new THREE.MeshBasicMaterial( { map: texture } );
+
+				const mesh = new THREE.Mesh( geometry, material );
+
+				scene.add( mesh );
+
+				renderer = new THREE.WebGLRenderer();
+				renderer.setPixelRatio( window.devicePixelRatio );
+				// renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.setSize( width, height );
+				container.appendChild( renderer.domElement );
+
+				container.style.touchAction = 'none';
+				container.addEventListener( 'pointerdown', onPointerDown );
+
+				//document.addEventListener( 'wheel', onDocumentMouseWheel );
+
+				//
+
+				document.addEventListener( 'dragover', function ( event ) {
+
+					event.preventDefault();
+					event.dataTransfer.dropEffect = 'copy';
+
+				} );
+
+				document.addEventListener( 'dragenter', function () {
+
+					document.body.style.opacity = 0.5;
+
+				} );
+
+				document.addEventListener( 'dragleave', function () {
+
+					document.body.style.opacity = 1;
+
+				} );
+
+				document.addEventListener( 'drop', function ( event ) {
+
+					event.preventDefault();
+
+					const reader = new FileReader();
+					reader.addEventListener( 'load', function ( event ) {
+
+						material.map.image.src = event.target.result;
+						material.map.needsUpdate = true;
+
+					} );
+					reader.readAsDataURL( event.dataTransfer.files[ 0 ] );
+
+					document.body.style.opacity = 1;
+
+				} );
+
+				//
+
+				window.addEventListener( 'resize', onWindowResize );
+
+			}
+
+			function onWindowResize() {
+
+				// camera.aspect = window.innerWidth / window.innerHeight;
+				// camera.updateProjectionMatrix();
+
+				// renderer.setSize( window.innerWidth, window.innerHeight );
+				camera.aspect = width / height;
+				camera.updateProjectionMatrix();
+				renderer.setSize( width, height );
+			}
+
+			function onPointerDown( event ) {
+
+				if ( event.isPrimary === false ) return;
+
+				isUserInteracting = true;
+
+				onPointerDownMouseX = event.clientX;
+				onPointerDownMouseY = event.clientY;
+
+				onPointerDownLon = lon;
+				onPointerDownLat = lat;
+
+				document.addEventListener( 'pointermove', onPointerMove );
+				document.addEventListener( 'pointerup', onPointerUp );
+
+			}
+
+			function onPointerMove( event ) {
+
+				if ( event.isPrimary === false ) return;
+
+				lon = ( onPointerDownMouseX - event.clientX ) * 0.1 + onPointerDownLon;
+				lat = ( event.clientY - onPointerDownMouseY ) * 0.1 + onPointerDownLat;
+
+			}
+
+			function onPointerUp() {
+
+				if ( event.isPrimary === false ) return;
+
+				isUserInteracting = false;
+
+				document.removeEventListener( 'pointermove', onPointerMove );
+				document.removeEventListener( 'pointerup', onPointerUp );
+
+			}
+
+			function onDocumentMouseWheel( event ) {
+
+				const fov = camera.fov + event.deltaY * 0.05;
+
+				camera.fov = THREE.MathUtils.clamp( fov, 10, 75 );
+
+				camera.updateProjectionMatrix();
+
+			}
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+				update();
+
+			}
+
+			function update() {
+
+				// if ( isUserInteracting === false ) {
+
+				// 	lon += 0.1;
+
+				// }
+
+				lat = Math.max( - 85, Math.min( 85, lat ) );
+				phi = THREE.MathUtils.degToRad( 90 - lat );
+				theta = THREE.MathUtils.degToRad( lon );
+
+				// console.log(lat);
+				// console.log(lon);
+
+				const x = 500 * Math.sin( phi ) * Math.cos( theta );
+				const y = 500 * Math.cos( phi );
+				const z = 500 * Math.sin( phi ) * Math.sin( theta );
+
+				camera.lookAt( x, y, z );
+
+				renderer.render( scene, camera );
+
+			}
+
+		</script>
         <!--Slider-->
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
