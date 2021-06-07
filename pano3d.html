@@ -223,20 +223,39 @@
                 </p>
             </div>
 
-            <div class="section-title">Data</div>
+            <div class="section-title">Data generation</div>
                 <div class="content">
-                    The most important part of designing useful benchmarks for data-driven methods is data, which will allow training unbiased, generalizable models.
-                    <h3>Data creation</h3>
-                        <p>
-                            Existing datasets are either purely synthetic (S3D) or ar based on 3D real scanned datasets (M3D, GV2).
-                            We exploit the 3D scanned models and render panoramas in different resolutions for both M3D and GV2.
-                            This results in a total of ... respectively
-                        </p>
-                    <h3>Generalization (zero-shot cross-dataset transfer)</h3>
-                        <p>
-                            To benchmark the generalization ability of monocular 360 depth estimation models, we provide diverse datasets in terms of
-                            domain, depth distribution, and color.
-                        </p>
+                    <p>
+                        Using Matterport3D [9] for training and the Pano3D GibsonV2 splits for testing, 
+                        the benchmark delivers a zero-shot cross-dataset transfer evaluation that can be 
+                        applied to different generalization settings on-demand. In addition, 
+                        Pano3D offers renders in two resolutions (1024x512 and 512x256). 
+                        We further release a big part of GibsonV2 that has not been used in the Pano3D testing splits, 
+                        and can be used as additional training data.
+
+                    </p>
+                    <h3>Download</h3>
+                    <p>
+                        To download the Pano3D dataset we follow a two-step process:
+                        <ol>
+                            <li>
+                                Access to the Pano3D dataset requires agreement with the terms and conditions for each of the 3D datasets
+                                that were used to create (i.e. render) it, and more specifically, Matterport3D [9] and GibsonV2 [8]. 
+                                Therefore, in order to grant you access to this dataset, we need you to first fill [this request form].
+                            </li>
+                            <li>
+                                Then, you need to perform a request for access to the respective Zenodo repositories, 
+                                where the data are hosted (more information can be found in our [download page]). 
+                                Due to data-size limitations, the dataset is split into six (6) repositories, 
+                                which respectively contain the color image, depth and normal map renders for each image. 
+                                The repositories are split into the two resolutions, with each subgroup of 3 repositories 
+                                containing the entire Matterport3D dataset renders, the entire GibsonV2 test split renders, 
+                                and the remainder of GibsonV2 which is used as additional training data. 
+                                Therefore, a separate request for access needs to be made to each repository in order to download 
+                                the corresponding data. 
+                            </li>
+                        </ol>
+                    </p>
             </div>
             <div class="section-title">Analysis</div>
             <div class="content">
