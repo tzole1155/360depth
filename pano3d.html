@@ -330,26 +330,49 @@
                 <div class="indicators">
                     <figure style="width: 32.00%;">
                         <img src="pano3d/id.svg" style="width:100%;">
-                        <p class="caption">Neural Parts is a novel 3D primitive representation that can
-                        <strong>represent arbitrarily complex genus-zero shapes
-                        </strong> and thus yield more <strong>geometrically accurate</strong> and
-                        <strong>semantically meaningful</strong> shape abstractions compared to simpler primitives.</p>
+                        <p class="caption">For the direct depth performance, it is observed that generally 
+                            the combined loss leads to improved performance (with a notable exception being the ResNet_skip model). 
+                            Interestingly the VNL only improves the performance of the UNet model, which can be attributed to the 
+                            combined effect of a smaller receptive field than the other models (inferior global context capture), 
+                            and of the localised prediction effect that the skip connections introduce.</p>
                     </figure>
                     <figure style="width: 32.00%;">
                         <img src="pano3d/ib.svg" style="width:100%;">
-                        <p class="caption">Neural Parts is a novel 3D primitive representation that can
-                        <strong>represent arbitrarily complex genus-zero shapes
-                        </strong> and thus yield more <strong>geometrically accurate</strong> and
-                        <strong>semantically meaningful</strong> shape abstractions compared to simpler primitives.</p>
+                        <p class="caption">As expected, the smoothness objective hurts boundary preservation while the gradient 
+                            matching term boosts, with UNet also benefiting from the VNL loss in terms of preserving boundaries.</p>
                     </figure>
                     <figure style="width: 32.00%;">
                         <img src="pano3d/is.svg" style="width:100%;">
-                        <p class="caption">Neural Parts is a novel 3D primitive representation that can
-                        <strong>represent arbitrarily complex genus-zero shapes
-                        </strong> and thus yield more <strong>geometrically accurate</strong> and
-                        <strong>semantically meaningful</strong> shape abstractions compared to simpler primitives.</p>
+                        <p class="caption">Opposite from the boundary, the gradient matching term hurts smoothness when used in 
+                            isolation, but the smoothness term helps balance its effect, and even benefits from their combined use. 
+                            Again, UNet is the only architecture to consistently benefit from VNL across all indicators</p>
                     </figure>
                 </div>
+                <h3>Best Models per Architecture</h3>
+                <p>
+                    From the above analysis, we define the best performing models of each architecture, with the only 
+                    conflicting choice being the ResNet_skip selected model where a balanced performer was chosen. 
+                    Qualitative results follow with the images on the left allowing for a transition between the input color 
+                    image and the normal maps from the predicted depth, accompanied by Poisson 3D reconstruction [17] of the 
+                    estimated depth maps.
+                    <h4>ResNet </h4>
+                    <table>
+                        <tr>
+                            <td>
+                                <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
+                                    <img src="pano3d/qualitative/color/color_9.png" alt="">
+                                    <div class="beer-reveal" data-beer-label="ResNetSkip">
+                                    <img src="pano3d/qualitative/skip/skip_9.png" alt="">
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <iframe allowfullscreen webkitallowfullscreen width="400" height="400" frameborder="0" seamless src="https://p3d.in/e/GHUuO+xray+spin"></iframe>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                </p>
             </div>
             <div class="section-title">Analysis</div>
             <div class="content">
