@@ -355,7 +355,9 @@
                     Qualitative results follow with the images on the left allowing for a transition between the input color 
                     image and the normal maps from the predicted depth, accompanied by Poisson 3D reconstruction [17] of the 
                     estimated depth maps.
-                    <h4>\(\color{#FF0000}{ResNet}\) </h4>
+                    <!-- ResNet -->
+
+                    <h4>\(\color{#008000}{ResNet}\) </h4>
                     <table>
                         <tr>
                             <td>
@@ -367,53 +369,142 @@
                                 </div>
                             </td>
                             <td>
-                                <iframe allowfullscreen webkitallowfullscreen width="400" height="400" frameborder="0" seamless src="https://p3d.in/e/GHUuO+xray+spin"></iframe>
+                                <iframe allowfullscreen webkitallowfullscreen width="400" height="276" frameborder="0" seamless src="https://p3d.in/e/GHUuO+xray+spin"></iframe>
                             </td>
                         </tr>
                     </table>
                     
+                    <!-- DenseNet -->
+
+                    <h4>\(\color{#008445}{DenseNet}\)</h4>
+                    <table>
+                        <tr>
+                            <td>
+                                <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
+                                    <img src="pano3d/qualitative/color/color_9.png" alt="">
+                                    <div class="beer-reveal" data-beer-label="ResNetSkip">
+                                    <img src="pano3d/qualitative/skip/skip_9.png" alt="">
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <iframe allowfullscreen webkitallowfullscreen width="400" height="276" frameborder="0" seamless src="https://p3d.in/e/GHUuO+xray+spin"></iframe>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- PNAS -->
+                    <h4>\(\color{#008445}{PNAS}\)</h4>
+                    <table>
+                        <tr>
+                            <td>
+                                <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
+                                    <img src="pano3d/qualitative/color/color_9.png" alt="">
+                                    <div class="beer-reveal" data-beer-label="ResNetSkip">
+                                    <img src="pano3d/qualitative/skip/skip_9.png" alt="">
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <iframe allowfullscreen webkitallowfullscreen width="400" height="276" frameborder="0" seamless src="https://p3d.in/e/GHUuO+xray+spin"></iframe>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- ResNet_skip -->
+                    
+                    <h4>\(\color{#008445}{ResNet_skip}\)</h4>
+                    <table>
+                        <tr>
+                            <td>
+                                <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
+                                    <img src="pano3d/qualitative/color/color_9.png" alt="">
+                                    <div class="beer-reveal" data-beer-label="ResNetSkip">
+                                    <img src="pano3d/qualitative/skip/skip_9.png" alt="">
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <iframe allowfullscreen webkitallowfullscreen width="400" height="276" frameborder="0" seamless src="https://p3d.in/e/GHUuO+xray+spin"></iframe>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- UNet -->
+                    
+                    <h4>\(\color{#008445}{UNet}\)</h4>
+                    <table>
+                        <tr>
+                            <td>
+                                <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
+                                    <img src="pano3d/qualitative/color/color_9.png" alt="">
+                                    <div class="beer-reveal" data-beer-label="ResNetSkip">
+                                    <img src="pano3d/qualitative/skip/skip_9.png" alt="">
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <iframe allowfullscreen webkitallowfullscreen width="400" height="276" frameborder="0" seamless src="https://p3d.in/e/GHUuO+xray+spin"></iframe>
+                            </td>
+                        </tr>
+                    </table>
+                </p>
+                <!-- ## Refining Depth Estimates: -->
+                <h2>Refining Depth Estimates</h2>
+                <p>
+                    Taking into account the developments for depth refinement, Pano3D also includes an analysis of a 
+                    recent work using displacement fields [18], which is properly adapted to the spherical domain, 
+                    to periodic displacement fields. <br>
+                    We use a specialized guided stacked hourglass architecture as a refinement module that is trained 
+                    using a pretrained depth model. Apart from the dual (guided) input encoder path, the guided stacked 
+                    hourglass model exchanges information between the color and depth features using 
+                    Adaptive Instance Normalization (AdaIn) [REF]. <br>
+                    <mark>GUIDED STACKED HOURGLASS image to be added</mark> <br>
+                    The periodic displacement fields consistently improve the boundary preservation performance
+                    of all models apart from the UNet one, which nonetheless, already exhibits the best boundary preservation performance.
+                    Qualitative samples overlaying the detected boundaries for selected models are illustrated below:
+                </p>
+                <table>
+                    <tr>
+                        <td><img src="pano3d/qualitative/edges/gt/135_sf_gt.png" style="width:100%;"></td>
+                        <td><img src="pano3d/qualitative/edges/unet/135_sf_unet.png" style="width:100%;"></td>
+                        <td><img src="pano3d/qualitative/edges/pnas/135_sf_pnas.png" style="width:100%;"></td>
+                        <td><img src="pano3d/qualitative/edges/resnet/135_sf_resnet.png" style="width:100%;"></td>
+                        <td><img src="pano3d/qualitative/edges/skip/135_sf_skip.png" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="pano3d/qualitative/edges/gt/17_sf_gt.png" style="width:100%;"></td>
+                        <td><img src="pano3d/qualitative/edges/unet/17_sf_unet.png" style="width:100%;"></td>
+                        <td><img src="pano3d/qualitative/edges/pnas/17_sf_pnas.png" style="width:100%;"></td>
+                        <td><img src="pano3d/qualitative/edges/resnet/17_sf_resnet.png" style="width:100%;"></td>
+                        <td><img src="pano3d/qualitative/edges/skip/17_sf_skip.png" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="pano3d/qualitative/edges/gt/38_sf_gt.png" style="width:100%;"></td>
+                        <td><img src="pano3d/qualitative/edges/unet/38_sf_unet.png" style="width:100%;"></td>
+                        <td><img src="pano3d/qualitative/edges/pnas/38_sf_pnas.png" style="width:100%;"></td>
+                        <td><img src="pano3d/qualitative/edges/resnet/38_sf_resnet.png" style="width:100%;"></td>
+                        <td><img src="pano3d/qualitative/edges/skip/38_sf_skip.png" style="width:100%;"></td>
+                    </tr>
+                </table>
+                <p class="caption">
+                    Boundary preservation qualitative comparison between the \(UNet\), \(Pnas\), \(ResNet\) and \(ResNet_{skip}\) models.
+                    From left to right: \(\textbf{i)} GT  depth\) <span style="color:rgb(0,204,153)">(green)</span>, \(\textbf{ii)} UNet\) <span style="color:rgb(255,166,0)">(orange)</span>,
+                    \(\textbf{iii)}\)  \(Pnas\) <span style="color:rgb(0,255,255)">(cyan)</span>, \(\textbf{iv)}\) \(ResNet\) <span style="color:rgb(227,209,10)">(yellow)</span>, 
+                    and \(\textbf{v)}\) \(ResNet_{skip}\) <span style="color:rgb(255,0,255)">(magenta)</span>.
                 </p>
             </div>
-            <div class="section-title">Analysis</div>
+            <div class="section-title">Comparisons</div>
             <div class="content">
-                <h3>Supervision & Architectures</h3>
-                It is challenging to select the best model architecture across different metrics, thus we propose the following indicators,
-                which essentially are a combination of an error and an accuracy metric accordingly.
-                
-        
+                Overall, the Pano3D baseline search shows that skip connections offer higher boundary 
+                preservation performance, naturally at the expense of smoothness, but their direct depth estimation performance 
+                does not suffer from this. The following comparison between the UNet and PNAS architecture (used in [19]) shows this 
+                different, with the advantage figure on the right (similar to [20]) illustrating the areas where each model performers better than the other
             </div>
             <div class="section-title">Results</div>
                 <div class="content">
                     <h3>Boundary preservation qualitative comparison</h3>
-                    <table>
-                        <tr>
-                            <td><img src="pano3d/qualitative/edges/gt/135_sf_gt.png" style="width:100%;"></td>
-                            <td><img src="pano3d/qualitative/edges/unet/135_sf_unet.png" style="width:100%;"></td>
-                            <td><img src="pano3d/qualitative/edges/pnas/135_sf_pnas.png" style="width:100%;"></td>
-                            <td><img src="pano3d/qualitative/edges/resnet/135_sf_resnet.png" style="width:100%;"></td>
-                            <td><img src="pano3d/qualitative/edges/skip/135_sf_skip.png" style="width:100%;"></td>
-                        </tr>
-                        <tr>
-                            <td><img src="pano3d/qualitative/edges/gt/17_sf_gt.png" style="width:100%;"></td>
-                            <td><img src="pano3d/qualitative/edges/unet/17_sf_unet.png" style="width:100%;"></td>
-                            <td><img src="pano3d/qualitative/edges/pnas/17_sf_pnas.png" style="width:100%;"></td>
-                            <td><img src="pano3d/qualitative/edges/resnet/17_sf_resnet.png" style="width:100%;"></td>
-                            <td><img src="pano3d/qualitative/edges/skip/17_sf_skip.png" style="width:100%;"></td>
-                        </tr>
-                        <tr>
-                            <td><img src="pano3d/qualitative/edges/gt/38_sf_gt.png" style="width:100%;"></td>
-                            <td><img src="pano3d/qualitative/edges/unet/38_sf_unet.png" style="width:100%;"></td>
-                            <td><img src="pano3d/qualitative/edges/pnas/38_sf_pnas.png" style="width:100%;"></td>
-                            <td><img src="pano3d/qualitative/edges/resnet/38_sf_resnet.png" style="width:100%;"></td>
-                            <td><img src="pano3d/qualitative/edges/skip/38_sf_skip.png" style="width:100%;"></td>
-                        </tr>
-                    </table>
-                    <p class="caption">
-                        Boundary preservation qualitative comparison between the \(UNet\), \(Pnas\), \(ResNet\) and \(ResNet_{skip}\) models.
-                        From left to right: \(\textbf{i)} GT  depth\) <span style="color:rgb(0,204,153)">(green)</span>, \(\textbf{ii)} UNet\) <span style="color:rgb(255,166,0)">(orange)</span>,
-                        \(\textbf{iii)}\)  \(Pnas\) <span style="color:rgb(0,255,255)">(cyan)</span>, \(\textbf{iv)}\) \(ResNet\) <span style="color:rgb(227,209,10)">(yellow)</span>, 
-                        and \(\textbf{v)}\) \(ResNet_{skip}\) <span style="color:rgb(255,0,255)">(magenta)</span>.
-                    </p>
+            
                     <h3>\(ResNet\) \(vs\) \(ResNet_{skip}\)</h3>
                         <!-- <div id="beer-slider" class="beer-slider" data-beer-label="Color" data-beer-start="40">
                             <img src="depth/color_20.jpg" alt="">
