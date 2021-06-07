@@ -255,7 +255,7 @@
                                 the corresponding data. 
                             </li>
                         </ol>
-                        <b>Note</b>that only completing one step of the two (i.e. only filling out the form, or only requesting access 
+                        <b>Note</b> that only completing one step of the two (i.e. only filling out the form, or only requesting access 
                         from the Zenodo repositories) will not be enough to get access to the data. 
                         We will do our best to contact you in such cases and notify you to complete all steps as needed, 
                         but our mails may be lost (e.g. spam filters/folders). 
@@ -269,11 +269,59 @@
 
                     </p>
             </div>
-            <div class="section-title">Analysis</div>
+            <div class="section-title">Searching for a solid baseline</div>
             <div class="content">
-                <h3>Supervision & Architectures</h3>
-                It is challenging to select the best model architecture across different metrics, thus we propose the following indicators,
-                which essentially are a combination of an error and an accuracy metric accordingly.
+                <h3>Architecture</h3>
+                <p>
+                    The Pano3D baseline search relies on single-pass autoencoder architectures supervised by a weighted combination
+                    of different loss functions, each focusing on a specific depth map trait.
+                    For the autoencoders we use a simple convolution decoder and focus our search on the encoder part, and specifically:
+                    <ul>
+                        <li>
+                            A standard ResNet-152 encoder [10] with 110M parameters {IMAGE}
+                        </li>
+                        <li>
+                            A standard DenseNet-161 encoder [11] with 55M parameters {IMAGE}
+                        </li>
+                        <li>
+                            A neural architecture search encoder, PNAS [12] with 99M parameters {IMAGE}
+                        </li>
+                    </ul>
+                    In addition, our search also considers architectures with encoder-decoder skip connections:
+                    <ul>
+                        <li>
+                            A traditional UNet [13] with 27M parameters {IMAGE}
+                        </li>
+                        <li>
+                            A customized ResNet-152 autoencoder with UNet-like skip connections 
+                            starting from the first residual block and 112M parameters {IMAGE}
+                        </li>
+                    </ul>
+                </p>
+                <h3>Losses</h3>
+                    For the baseline search, we build upon prior literature regarding depth regression losses [14] and 
+                    consider standard supporting losses, as well as a recently presented globalized loss:
+                    <ul>
+                        <li>
+                            A L1 depth error, which is the better performing direct objective [14], supported by:
+                            <ul>
+                                <li>
+                                    A multi-scale gradient maching term [15], that aims at preserving boundaries
+                                </li>
+                                <li>
+                                    A surface orientation error term [3], that aims at minimizing the cosine distance between normals
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            A combined objective for direct depth performance, boundary preservation and surface smoothness,
+                        </li>
+                        <li>
+                            The above combined error is further supported by a global virtual normal loss (VNL) [16]
+                        </li>
+                    </ul>
+                <h3>Indicators</h3>
+                To holistically assess the different models, we employ performance indicators that aggregate metrics across the different dimensions:
                 <ul>
                     <li>\(i_d = \frac{1}{(1 - \delta_{1.25}) \times RMSE}\)</li>
                     <li>\(i_b = \frac{1}{(1 - \frac{(rec_{0.25} + rec_{0.5} + rec_{1.0})}{3}) \times dbe^{acc}}\)</li>
@@ -302,6 +350,14 @@
                         <strong>semantically meaningful</strong> shape abstractions compared to simpler primitives.</p>
                     </figure>
                 </div>
+            </div>
+            <div class="section-title">Analysis</div>
+            <div class="content">
+                <h3>Supervision & Architectures</h3>
+                It is challenging to select the best model architecture across different metrics, thus we propose the following indicators,
+                which essentially are a combination of an error and an accuracy metric accordingly.
+                
+        
             </div>
             <div class="section-title">Results</div>
                 <div class="content">
